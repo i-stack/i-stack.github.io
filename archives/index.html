@@ -684,7 +684,9 @@
     </h3>
     <div class="content tag-cloud">
         
-        <a href="/tags/chatgpt/" style="font-size: 10px;">chatgpt</a> <a href="/tags/%E4%BA%A4%E5%8F%8B/" style="font-size: 10px;">交友</a> <a href="/tags/%E5%8F%A4%E9%A3%8E/" style="font-size: 10px;">古风</a> <a href="/tags/%E5%95%86%E4%B8%9A/" style="font-size: 13.33px;">商业</a> <a href="/tags/%E5%A3%81%E7%BA%B8/" style="font-size: 10px;">壁纸</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E5%B0%8F%E8%AF%B4%E6%BA%90%E7%A0%81/" style="font-size: 10px;">小说源码</a> <a href="/tags/%E5%B7%A5%E5%95%86%E9%93%B6%E8%A1%8C/" style="font-size: 10px;">工商银行</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%A1%88%E4%BE%8B/" style="font-size: 13.33px;">案例</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 16.67px;">源码</a> <a href="/tags/%E7%82%B9%E8%B5%9E%E5%85%B3%E6%B3%A8/" style="font-size: 10px;">点赞关注</a> <a href="/tags/%E7%A6%8F%E5%88%A9/" style="font-size: 10px;">福利</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">系统</a> <a href="/tags/%E8%A7%82%E4%BB%8A%E9%89%B4%E5%8F%A4/" style="font-size: 20px;">观今鉴古</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%8F%B7/" style="font-size: 10px;">视频号</a> <a href="/tags/%E9%9B%B6%E8%8A%B1%E9%92%B1/" style="font-size: 10px;">零花钱</a>
+        <canvas width="300" height="300" id="tag-cloud-3d">
+            <a href="/tags/chatgpt/" style="font-size: 10px;">chatgpt</a> <a href="/tags/%E4%BA%A4%E5%8F%8B/" style="font-size: 10px;">交友</a> <a href="/tags/%E5%8F%A4%E9%A3%8E/" style="font-size: 10px;">古风</a> <a href="/tags/%E5%95%86%E4%B8%9A/" style="font-size: 13.33px;">商业</a> <a href="/tags/%E5%A3%81%E7%BA%B8/" style="font-size: 10px;">壁纸</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">小程序</a> <a href="/tags/%E5%B0%8F%E8%AF%B4%E6%BA%90%E7%A0%81/" style="font-size: 10px;">小说源码</a> <a href="/tags/%E5%B7%A5%E5%95%86%E9%93%B6%E8%A1%8C/" style="font-size: 10px;">工商银行</a> <a href="/tags/%E6%96%87%E6%A1%88/" style="font-size: 10px;">文案</a> <a href="/tags/%E6%A1%88%E4%BE%8B/" style="font-size: 13.33px;">案例</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 16.67px;">源码</a> <a href="/tags/%E7%82%B9%E8%B5%9E%E5%85%B3%E6%B3%A8/" style="font-size: 10px;">点赞关注</a> <a href="/tags/%E7%A6%8F%E5%88%A9/" style="font-size: 10px;">福利</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">系统</a> <a href="/tags/%E8%A7%82%E4%BB%8A%E9%89%B4%E5%8F%A4/" style="font-size: 20px;">观今鉴古</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%8F%B7/" style="font-size: 10px;">视频号</a> <a href="/tags/%E9%9B%B6%E8%8A%B1%E9%92%B1/" style="font-size: 10px;">零花钱</a>
+        </canvas>
         
     </div>
 </div>
@@ -759,6 +761,30 @@
 <script src="/js/search.js?rev=@@hash.js"></script>
 
 
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
 
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
