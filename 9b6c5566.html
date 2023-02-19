@@ -1,0 +1,488 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="辰沙资源">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.freelibrary.top">
+    <!--SEO-->
+
+<meta name="keywords" content="教程" />
+
+
+<meta name="description" content="一、青龙面板搭建第一步、服务器需要一台服务器，最好国内的，如果已经有服务器，可以忽略第一步！如果不想购买服务器，又想使用青龙面板挂机，可以留言～
+第二步、安装CentOS操作系统全新安装Cent..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    青龙面板 |
+    
+    辰沙资源
+</title>
+
+<link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='大唐盛世'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.freelibrary.top">
+                        辰沙资源</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/资源分享/"><i class="fa "></i>
+                                资源分享</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/项目分享/"><i class="fa "></i>
+                                项目分享</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/商业案例/"><i class="fa "></i>
+                                商业案例</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="青龙面板">
+            
+            青龙面板
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/01/19</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="一、青龙面板搭建"><a href="#一、青龙面板搭建" class="headerlink" title="一、青龙面板搭建"></a><font color="#1E90FF">一、青龙面板搭建</font></h2><h3 id="第一步、服务器"><a href="#第一步、服务器" class="headerlink" title="第一步、服务器"></a><font color="#1E90FF">第一步、服务器</font></h3><p>需要一台服务器，最好国内的，如果已经有服务器，可以忽略第一步！如果不想购买服务器，又想使用青龙面板挂机，可以留言～</p>
+<h3 id="第二步、安装CentOS操作系统"><a href="#第二步、安装CentOS操作系统" class="headerlink" title="第二步、安装CentOS操作系统"></a><font color="#1E90FF">第二步、安装CentOS操作系统</font></h3><p>全新安装CentOS操作系统，并放开 22、5600端口。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bt.cn/linux.html">安装宝塔面板</a></p>
+<h3 id="第三步、安装青龙面板"><a href="#第三步、安装青龙面板" class="headerlink" title="第三步、安装青龙面板"></a><font color="#1E90FF">第三步、安装青龙面板</font></h3><p>1、安装 Docker 环境，通过 SSH 连接服务器</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2、安装完成后启动 Docker</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></tbody></table></figure>
+
+<p>3、设置 Docker 开机自动启动</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable docker</span><br></pre></td></tr></tbody></table></figure>
+
+<p>4、Docker 安装完成后拉取青龙镜像</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull whyour/qinglong:latest</span><br></pre></td></tr></tbody></table></figure>
+
+<p>5、部署青龙面板</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">-v $PWD/ql/config:/ql/config \</span><br><span class="line">-v $PWD/ql/log:/ql/log \</span><br><span class="line">-v $PWD/ql/db:/ql/db \</span><br><span class="line">-p 5600:5600 \</span><br><span class="line">--name qinglong \</span><br><span class="line">--hostname qinglong \</span><br><span class="line">--restart always \</span><br><span class="line">whyour/qinglong:latest</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="第四步、初始化青龙面板"><a href="#第四步、初始化青龙面板" class="headerlink" title="第四步、初始化青龙面板"></a><font color="#1E90FF">第四步、初始化青龙面板</font></h3><p>部署完成后，直接访问IP:5600访问青龙面板的安装界面。</p>
+<p><img src="/9b6c5566/20211216184333.png" alt="1"></p>
+<p>直接开始安装进入下一步，这里可以根据你自己的喜欢设置通知方式，也可以直接跳过该步骤。</p>
+<p><img src="/9b6c5566/20211216184403.png" alt="2"></p>
+<p>设置管理员账号密码，这是初始化安装青龙面板最重要的步骤</p>
+<p><img src="/9b6c5566/20211216184443.png" alt="3"></p>
+<p>如果不小心忘记密码，或者说不明原因没有进入这个配置页面，可以通过 SSH 执行下方命令查看账号及密码</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it qinglong cat /ql/config/auth.json</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="第五步、安装青龙面板京东脚本依赖库"><a href="#第五步、安装青龙面板京东脚本依赖库" class="headerlink" title="第五步、安装青龙面板京东脚本依赖库"></a><font color="#1E90FF">第五步、安装青龙面板京东脚本依赖库</font></h3><p>在安装好青龙面板之后，第一时间部署依赖库，以便适应各种脚本。</p>
+<h3 id="第六步、配置青龙面板定时任务"><a href="#第六步、配置青龙面板定时任务" class="headerlink" title="第六步、配置青龙面板定时任务"></a><font color="#1E90FF">第六步、配置青龙面板定时任务</font></h3><p>青龙面板本身不具备脚本的功能，只是一个管理和执行相应脚本的可视化平台。为了使其能够完成媷羊毛的功能，接下来使用青龙面板拉去一些库，使其自动更新一些功能。</p>
+<p><img src="/9b6c5566/20211216184720.png" alt="4"></p>
+<p>登录面板后选择定时任务→添加任务。</p>
+<p><img src="/9b6c5566/20211216185453.png" alt="5"></p>
+<h3 id="第七步、定时任务库"><a href="#第七步、定时任务库" class="headerlink" title="第七步、定时任务库"></a><font color="#1E90FF">第七步、定时任务库</font></h3><p>我自己使用库以及定时拉取任务配置</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">定时类型</span><br><span class="line">crontab</span><br><span class="line"></span><br><span class="line">定时规则</span><br><span class="line">0 0 23 * * *</span><br></pre></td></tr></tbody></table></figure>
+
+<p>KingRan/KR（集合库）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/KingRan/KR.git "jd_|jx_|jdCookie" "activity|backUp" "^jd[^_]|USER|utils|function|sign|sendNotify|ql|JDJR"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>6dylan6/jdpro（集合库）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/6dylan6/jdpro.git "jd_|jx_|jddj_" "backUp" "^jd[^_]|USER|JD|function|sendNotify"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>yyds</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/okyyds/yyds.git "jd_|jx_|gua_|jddj_|jdCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>smiek2121（开卡库）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/smiek2121/scripts.git "jd_|gua_" "" "ZooFaker_Necklace.js|JDJRValidator_Pure.js|sign_graphics_validate.js|cleancart_activity.js|jdCookie.js|sendNotify.js"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>掘金</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://github.com/leochen-g/ql-juejinhelper.git "juejin_|juejinCookies" "juejinCookies" ^juejin[^_]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>BiliBili</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ql repo https://ghproxy.com/https://github.com/RayWangQvQ/BiliBiliToolPro.git "bili_task_" "" "" "sh"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>爱企查</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单文件</span><br><span class="line"></span><br><span class="line">https://ghproxy.com/github.com/shiunke/Scripts/blob/unke/aiqicha.js</span><br></pre></td></tr></tbody></table></figure>
+
+<p>美团</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单文件</span><br><span class="line"></span><br><span class="line">https://raw.githubusercontent.com/leafTheFish/DeathNote/main/meituan.js </span><br></pre></td></tr></tbody></table></figure>
+
+<p>饿了么</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单文件</span><br><span class="line"></span><br><span class="line">https://raw.githubusercontent.com/leafTheFish/DeathNote/main/elm.js</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="第八步、定时规则"><a href="#第八步、定时规则" class="headerlink" title="第八步、定时规则"></a><font color="#1E90FF">第八步、定时规则</font></h3><p>定时规则如下:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">秒 分 时 天 月 周</span><br></pre></td></tr></tbody></table></figure>
+
+<p>举例说明定时规则使用：</p>
+<p>1、每天晚上10点20分50秒执行任务</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 20 10 * * *</span><br></pre></td></tr></tbody></table></figure>
+
+<p>2、每月5号每天晚上10点20分50秒执行任务</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 20 10 5 * *</span><br></pre></td></tr></tbody></table></figure>
+
+<p>3、每年5月5号每天晚上10点20分50秒执行任务</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 20 10 5 5 *</span><br></pre></td></tr></tbody></table></figure>
+<p>4、每天10，12点20分50秒执行两次任务</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 20 10,12 * * *</span><br></pre></td></tr></tbody></table></figure>
+
+<p>5、每小时20分50秒执行任务</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 20 * * * *</span><br></pre></td></tr></tbody></table></figure>
+
+<p>6、每50秒执行任务</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50 * * * * *</span><br></pre></td></tr></tbody></table></figure>
+
+<p>以上基本能够满足大多数定时场景。</p>
+<h2 id="二、Cookie获取"><a href="#二、Cookie获取" class="headerlink" title="二、Cookie获取"></a><font color="#1E90FF">二、Cookie获取</font></h2><h3 id="1、京东Cookie"><a href="#1、京东Cookie" class="headerlink" title="1、京东Cookie"></a><font color="#1E90FF">1、京东Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：JD_COOKIE</p>
+<p>值：pt_key=xxxx; pt_pin=xxxx; </p>
+</blockquote>
+<h3 id="2、掘金Cookie"><a href="#2、掘金Cookie" class="headerlink" title="2、掘金Cookie"></a><font color="#1E90FF">2、掘金Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：JJ_COOKIE</p>
+<p>值：_ga=xxxx; __tea_cookie_tokens_2608=xxxx; passport_csrf_token=xxxx; passport_csrf_token_default=xxxx; n_mh=xxxx; sid_guard=xxxx; uid_tt=xxxx; uid_tt_ss=xxxx; sid_tt=xxxx; sessionid=xxxx; sessionid_ss=xxxx;sid_ucp_v1=xxxx; ssid_ucp_v1=xxxx;_tea_utm_cache_2608={“utm_source”:”gold_browser_extension”}; csrf_session_id=xxxx;</p>
+</blockquote>
+<h3 id="3、饿了么Cookie"><a href="#3、饿了么Cookie" class="headerlink" title="3、饿了么Cookie"></a><font color="#1E90FF">3、饿了么Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：elmCookie</p>
+<p>值：SID=xxxx; USERID=xxxx; UTUSER=xxxx; <em>tb_token</em>=xxxx; cookie2=xxxx; csg=xxxx; munb=xxxx; sgcookie=xxxx; t=xxxx; unb=xxxx;</p>
+</blockquote>
+<h3 id="4、美团Cookie"><a href="#4、美团Cookie" class="headerlink" title="4、美团Cookie"></a><font color="#1E90FF">4、美团Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：meituanCookie</p>
+<p>值：userId=xxxx&amp;token=xxxx</p>
+</blockquote>
+<h3 id="5、爱企查Cookie"><a href="#5、爱企查Cookie" class="headerlink" title="5、爱企查Cookie"></a><font color="#1E90FF">5、爱企查Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：aqcCookies</p>
+<p>值：BAIDUID=xxxx:FG=1; BAIDUID_BFESS=xxxx:FG=1; ab_jid=xxxx; ab_jid_BFESS=xxxx; MCITY=-268:; newlogin=1; BIDUPSID=xxxx; PSTM=xxxx; ZFY=xxxx:C; BDUSS=xxxx; BDUSS_BFESS=xxxx; BAIDU_WISE_UID=xxxx; log_first_time=1672548872379; ab_bid=xxxx; ab_sr=xxxx; log_last_time=1672548882078; RT=”z=1&amp;dm=baidu.com&amp;si=xxxx&amp;ss=xxxx&amp;sl=8&amp;tt=7g9&amp;bcn=xxxx&amp;ld=nama”</p>
+</blockquote>
+<h3 id="6、BiliBili-Cookie"><a href="#6、BiliBili-Cookie" class="headerlink" title="6、BiliBili Cookie"></a><font color="#1E90FF">6、BiliBili Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：Ray_BiliBiliCookies__0</p>
+<p>值：SESSDATA=xxxx; bili_jct=xxxx; DedeUserID=xxxx; DedeUserID__ckMd5=xxxx; sid=xxxx</p>
+</blockquote>
+<h3 id="7、58-Cookie"><a href="#7、58-Cookie" class="headerlink" title="7、58 Cookie"></a><font color="#1E90FF">7、58 Cookie</font></h3><p>环境变量设置 </p>
+<blockquote>
+<p>名称：Ray_BiliBiliCookies__0</p>
+<p>值：58mac=xxxx;charset=”UTF-8”;uuid=”xxxx”;machine=iPhone14,5;platform=”iphone”;apn=”WIFI”;jumpextra=”{“spm”:””,”utm_source”:””}”;maptype=”1”;imei=xxxx;deny=3.000000;cid=”1”;locationaccuracy=xxxx.xxxx;switchrecommend=”-1”;areaid=””;ua=”iPhone 13_iOS 16.1.2”;brand=Apple;osv=”16.1.2”;os=”ios”;adnop=46011;bundle=com.taofang.iphone;coordinatesystem=GCJ-02;townlocalid=””;uploadtime=”20230107010352”;sh=797;58cooper=userid=xxxx&amp;username=62lglmacx;Accept-Encoding=”deflate,gzip”;f=”58”;passportAccount=atype=0&amp;bstate=0;sid=”nosid”;58openudid=”xxxx”;netType=WWAN;coordinateType=10;id58=xxxx;wbuversion=12.4.1;cimei=”0f607264fc6318a92b9e13c65db7cd3c”;scale=”1”;openudid=”xxxx”;locationstate=”1”;m=xxxx;cversion=”12.4.1”;vlocalid=””;58uname=62lglmacx;r=”390_844”;uid=”xxxx”;58ua=58app;PPU=UID=xxxx&amp;UN=62lglmacx&amp;TT=xxxx&amp;PBODY=xxxx-xxxx&amp;VER=1&amp;CUID=xxxx;xxaqrid=”xxxx”;xxzl-cid=;tp=iPhone 13;webviewType=”wkwebview”;channelid=”80000”;www58com=UserID=xxxx&amp;UserName=62lglmacx;sw=390;dirname=”bj”;productorid=”3”;</p>
+</blockquote>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/alipay.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/wechat.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://i-stack.github.io/" target="_blank">大唐盛世</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/ed7d93dd.html" class="pre-post btn btn-default" title='一个18平米的服装店，一年创造1860万营业额的案例'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            一个18平米的服装店，一年创造1860万营业额的案例</span>
+    </a>
+    
+    
+    <a href="/f622ed48.html" class="next-post btn btn-default" title='30岁老板，用一个月3万拿下30万的店'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            30岁老板，用一个月3万拿下30万的店</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div id="vcomments" class="valine"></div>
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+<script>
+    new Valine({
+        av: AV,
+        el: '#vcomments',
+        appId: 'iv509cTC3tfhBFipoZZ2rXA1-gzGzoHsz',
+        appKey: 'JrOm1nDA1m2Y376YU9h9LvbA',
+        placeholder: '说点什么吧',
+        notify: false,
+        verify: false,
+        avatar: 'mm',
+        meta: 'nick,mail'.split(','),
+        pageSize: '10',
+        path: window.location.pathname,
+        lang: 'zh-CN'.toLowerCase()
+    })
+    </script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA"><span class="toc-text">一、青龙面板搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E3%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">第一步、服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E3%80%81%E5%AE%89%E8%A3%85CentOS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">第二步、安装CentOS操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E3%80%81%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF"><span class="toc-text">第三步、安装青龙面板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF"><span class="toc-text">第四步、初始化青龙面板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%E3%80%81%E5%AE%89%E8%A3%85%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E4%BA%AC%E4%B8%9C%E8%84%9A%E6%9C%AC%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="toc-text">第五步、安装青龙面板京东脚本依赖库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%E3%80%81%E9%85%8D%E7%BD%AE%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-text">第六步、配置青龙面板定时任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%E3%80%81%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%BA%93"><span class="toc-text">第七步、定时任务库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E6%AD%A5%E3%80%81%E5%AE%9A%E6%97%B6%E8%A7%84%E5%88%99"><span class="toc-text">第八步、定时规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Cookie%E8%8E%B7%E5%8F%96"><span class="toc-text">二、Cookie获取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BA%AC%E4%B8%9CCookie"><span class="toc-text">1、京东Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%8E%98%E9%87%91Cookie"><span class="toc-text">2、掘金Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%A5%BF%E4%BA%86%E4%B9%88Cookie"><span class="toc-text">3、饿了么Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E7%BE%8E%E5%9B%A2Cookie"><span class="toc-text">4、美团Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E7%88%B1%E4%BC%81%E6%9F%A5Cookie"><span class="toc-text">5、爱企查Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81BiliBili-Cookie"><span class="toc-text">6、BiliBili Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%8158-Cookie"><span class="toc-text">7、58 Cookie</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="//beian.miit.gov.cn/" target="_blank" rel="nofollow">
+                        豫ICP备2022028466号</a>
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
