@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="辰沙资源">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="https://www.freelibrary.top">
+    <!--SEO-->
+
+<meta name="keywords" content="{{ page.keywords }}" />
+
+
+<meta name="description" content="基本环境要求
+(PHP + PHPCLI) version = 7.4
+Nginx version &gt;= 1.16
+MYSQL version &gt;= 5.6
+Redis (高性能缓存..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    独角数卡源码搭建 |
+    
+    辰沙资源
+</title>
+
+<link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+<meta name="baidu-site-verification" content="codeva-7tnz9mgYod" />
+
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d7081b62deb4d103aca073589b382ffd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='大唐盛世'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.freelibrary.top">
+                        辰沙资源</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/项目资源/"><i class="fa "></i>
+                                项目资源</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/商业案例/"><i class="fa "></i>
+                                商业案例</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/技术教程/"><i class="fa "></i>
+                                技术教程</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="独角数卡源码搭建">
+            
+            独角数卡源码搭建
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/03/02</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="基本环境要求"><a href="#基本环境要求" class="headerlink" title="基本环境要求"></a><font color="#1E90FF">基本环境要求</font></h2><ul>
+<li>(PHP + PHPCLI) version = 7.4</li>
+<li>Nginx version &gt;= 1.16</li>
+<li>MYSQL version &gt;= 5.6</li>
+<li>Redis (高性能缓存服务)</li>
+<li>Supervisor (一个python编写的进程管理服务)</li>
+<li>Composer (PHP包管理器)</li>
+<li>Linux (Win下未测试，建议直接Linux)</li>
+</ul>
+<h2 id="PHP环境要求"><a href="#PHP环境要求" class="headerlink" title="PHP环境要求"></a><font color="#1E90FF">PHP环境要求</font></h2><p>星号(*)为必须执行的要求，其他为建议内容</p>
+<ul>
+<li>*<strong>安装<code>fileinfo</code>扩展</strong></li>
+<li>*<strong>安装<code>redis</code>扩展</strong></li>
+<li>*<strong>终端需支持<code>php-cli</code>，测试<code>php -v</code>(版本必须一致)</strong></li>
+<li>*<strong>需要开启的函数：<code>putenv</code>，<code>proc_open</code>，<code>pcntl_signal</code>，<code>pcntl_alarm</code></strong></li>
+<li>安装<code>opcache</code>扩展</li>
+</ul>
+<h2 id="安装篇"><a href="#安装篇" class="headerlink" title="安装篇"></a><font color="#1E90FF">安装篇</font></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/linux_install">Linux环境安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/docker_install">Docker安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/2.x_bt_install">2.x版本宝塔安装教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/1.x_bt_install">1.x版本宝塔环境安装</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/problems">常见问题锦集-你遇到的问题大部分能在这里找到解决！！</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/update">系统升级</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/assimon/dujiaoka/wiki/problems#%E5%90%84%E6%94%AF%E4%BB%98%E5%AF%B9%E5%BA%94%E9%85%8D%E7%BD%AE">各支付对应后台配置</a></li>
+</ul>
+<h2 id="默认后台"><a href="#默认后台" class="headerlink" title="默认后台"></a><font color="#1E90FF">默认后台</font></h2><ul>
+<li>后台路径 <code>/admin</code></li>
+<li>默认管理员账号 <code>admin</code></li>
+<li>默认管理员密码 <code>admin</code></li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a><font color="#1E90FF">其他</font></h2><p>按照以上步骤一步一步操作即可成功。  </p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/alipay.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/wechat.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://i-stack.github.io/" target="_blank">大唐盛世</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2e98f8d5.html" class="pre-post btn btn-default" title='独角数卡后台管理密码忘记了怎么办'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            独角数卡后台管理密码忘记了怎么办</span>
+    </a>
+    
+    
+    <a href="/24802934.html" class="next-post btn btn-default" title='本地商家运营师'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            本地商家运营师</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+(function() {
+    var appid = 'cywx8yBY9';
+    var conf = 'prod_4295944241e2145f25f438e04b2ed613';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) { window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else {
+        var loadJs = function(d, a) {
+            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+            var b = document.createElement("script");
+            b.setAttribute("type", "text/javascript");
+            b.setAttribute("charset", "UTF-8");
+            b.setAttribute("src", d);
+            if (typeof a === "function") { if (window.attachEvent) { b.onreadystatechange = function() { var e = b.readyState; if (e === "loaded" || e === "complete") { b.onreadystatechange = null;
+                            a() } } } else { b.onload = a } }
+            c.appendChild(b)
+        };
+        loadJs("https://changyan.sohu.com/upload/changyan.js", function() { window.changyan.api.config({ appid: appid, conf: conf }) });
+    }
+})();
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-text">基本环境要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-text">PHP环境要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%AF%87"><span class="toc-text">安装篇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%90%8E%E5%8F%B0"><span class="toc-text">默认后台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="//beian.miit.gov.cn/" target="_blank" rel="nofollow">
+                        豫ICP备2022028466号</a>
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
