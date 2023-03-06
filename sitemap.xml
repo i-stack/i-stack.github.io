@@ -2309,7 +2309,7 @@
   </url>
   
   <url>
-    <loc>https://www.freelibrary.top/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.freelibrary.top/tags/hexo/</loc>
     <lastmod>2023-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2323,7 +2323,7 @@
   </url>
   
   <url>
-    <loc>https://www.freelibrary.top/tags/hexo/</loc>
+    <loc>https://www.freelibrary.top/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2465,14 +2465,14 @@
   </url>
   
   <url>
-    <loc>https://www.freelibrary.top/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
+    <loc>https://www.freelibrary.top/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
