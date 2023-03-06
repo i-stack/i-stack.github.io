@@ -2,6 +2,6 @@
 User-agent: *
 Disallow: 
 Disallow: /bin/
-Sitemap: www.freelibrary.top/sitemap.xm
+Sitemap: www.freelibrary.top/sitemap.xml
 Sitemap: www.freelibrary.top/baidusitemap.xml
 Sitemap: www.freelibrary.top/googlesitemap.xml
