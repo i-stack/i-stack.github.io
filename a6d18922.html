@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="辰沙资源">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <meta property="og:title" content="渲染原理">
+    <meta property="og:type" content="website">
+    <link rel="dns-prefetch" href="https://www.freelibrary.top">
+    <!--SEO-->
+
+<meta name="keywords" content="教程" />
+
+
+<meta name="description" content="一、CPU(Central Processing Unit)1、现代计算机整个系统的运算核心、控制核心；
+2、能处理大量不同的跳转、中断等指令；
+3、CPU 拥有更多的缓存空间 Cache 以及..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    渲染原理 |
+    
+    辰沙资源
+</title>
+
+<link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+<meta name="baidu-site-verification" content="codeva-7tnz9mgYod" />
+
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d7081b62deb4d103aca073589b382ffd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC9BJCZB6X"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-WC9BJCZB6X');
+    </script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='大唐盛世'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.freelibrary.top">
+                        辰沙资源</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/项目资源/"><i class="fa "></i>
+                                项目资源</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/商业案例/"><i class="fa "></i>
+                                商业案例</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/技术教程/"><i class="fa "></i>
+                                技术教程</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="渲染原理">
+            
+            渲染原理
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/03/14</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="一、CPU-Central-Processing-Unit"><a href="#一、CPU-Central-Processing-Unit" class="headerlink" title="一、CPU(Central Processing Unit)"></a><font color="#1E90FF">一、CPU(Central Processing Unit)</font></h2><p>1、现代计算机整个系统的运算核心、控制核心；</p>
+<p>2、能处理大量不同的跳转、中断等指令；</p>
+<p>3、CPU 拥有更多的缓存空间 Cache 以及复杂的控制单元，计算能力并不是 CPU 的主要诉求；</p>
+<p>4、CPU 是设计目标是低时延，更多的高速缓存也意味着可以更快地访问数据；同时复杂的控制单元也能更快速地处理逻辑分支，更适合串行计算。</p>
+<h2 id="二、GPU-Graphics-Processing-Unit"><a href="#二、GPU-Graphics-Processing-Unit" class="headerlink" title="二、GPU(Graphics Processing Unit)"></a><font color="#1E90FF">二、GPU(Graphics Processing Unit)</font></h2><p>1、进行绘图运算工作的专用微处理器，是连接计算机和显示终端的纽带；</p>
+<p>2、适合大规模的并行计算。</p>
+<h2 id="三、图像渲染流水线"><a href="#三、图像渲染流水线" class="headerlink" title="三、图像渲染流水线"></a><font color="#1E90FF">三、图像渲染流水线</font></h2><p><img src="/a6d18922/Application.png"><br>￼</p>
+<h3 id="第一阶段：Application-应用处理阶段"><a href="#第一阶段：Application-应用处理阶段" class="headerlink" title="第一阶段：Application 应用处理阶段"></a>第一阶段：Application 应用处理阶段</h3><p>CUP对图像进行操作和改变得到图元，通常是三角形、线段、顶点等，然后将新的图像信息传递给下一阶段。</p>
+<h3 id="第二阶段：Geometry-几何处理阶段"><a href="#第二阶段：Geometry-几何处理阶段" class="headerlink" title="第二阶段：Geometry 几何处理阶段"></a>第二阶段：Geometry 几何处理阶段</h3><p>GPU处理上一阶段的图元信息，然后输出新的图元，这一阶段包括：</p>
+<p>1、顶点着色器(Vertex Shader)：这个阶段会将图元中的顶点信息进行视角转换、添加光照信息、增加纹理等操作；</p>
+<p>2、形状装配(Shape Assembly)：图元中的三角形、线段、点分别对应3个Vertex、2个Vertex、1Vertex，这个阶段会将Vertex连接成相应的形状；</p>
+<p>3、几何着色器(Geometry Shader)：通过三角形、线段、点构建更复杂的几何图形。</p>
+<h3 id="第三阶段：Rasterization光栅化阶段"><a href="#第三阶段：Rasterization光栅化阶段" class="headerlink" title="第三阶段：Rasterization光栅化阶段"></a>第三阶段：Rasterization光栅化阶段</h3><p>光栅化的主要目的是将几何渲染之后的图元信息转换为像素，用于后续显示在屏幕上。</p>
+<h3 id="第四阶段：Pixel-像素处理阶段"><a href="#第四阶段：Pixel-像素处理阶段" class="headerlink" title="第四阶段：Pixel 像素处理阶段"></a>第四阶段：Pixel 像素处理阶段</h3><p>经过光栅化阶段，得到了图元所对应的像素，给这些像素填充颜色和效果，最终显示在屏幕上。</p>
+<p>这些经过处理、蕴含大量信息的像素点集合，被称作位图(bitmap)，存在帧缓冲区(Framebuffer)中。</p>
+<p>1、片段着色器(Fragment Shader)：也叫Pixel Shader，目的是给每一个像素赋予正确的颜色，这些颜色的来源就是之前得到的顶点、纹理、光照等信息。由于需要处理纹理、光照等复杂信息，这部分是整个系统的性能瓶颈。</p>
+<p>2、测试与混合(Tests and Blending)：也叫Merging阶段，这个阶段主要处理片段的前后位置以及透明度。</p>
+<p>检测各个着色片段的深度值z坐标，从而判断片段的前后位置，计算相应的透明度 alpha 值，从而进行片段的混合，得到最终的颜色。</p>
+<p>GUP最后一步渲染结束之后的像素信息，被存在帧缓冲器（Frame Buffer）中。</p>
+<h2 id="四、屏幕成像"><a href="#四、屏幕成像" class="headerlink" title="四、屏幕成像"></a><font color="#1E90FF">四、屏幕成像</font></h2><p>在图像渲染流程结束后，接下来就需要将得到的像素信息显示在物理屏幕上。</p>
+<p><img src="/a6d18922/BUS.png"><br>￼<br>当垂直同步信号 <code>Vsync</code> 到来时，显示器的电子束会从屏幕的左上角开始逐行扫描，屏幕上的每个点的图像信息都是视频控制器从帧缓冲区中进行读取，在屏幕上显示。</p>
+<p>当电子束完成一帧的扫描，将要从头开始扫描时，就会发出一个垂直同步信号，视频控制器接收到 <code>Vsync</code> 之后，会将帧缓冲区中的位图更新为下一帧。<br>￼<br>1、电子束扫描的过程中，屏幕就能呈现出对应的结果，每次整个屏幕被扫描完一次后，就相当于呈现了一帧完整的图像。</p>
+<p>2、屏幕不断地刷新，不停呈现新的帧，就能呈现出连续的影像。</p>
+<p>3、屏幕刷新的频率，就是帧率(Frame per Second，FPS)。对于 iOS 而言，app 应该尽量保证 60 FPS 才是最好的体验。</p>
+<h2 id="五、屏幕撕裂-Screen-Tearing"><a href="#五、屏幕撕裂-Screen-Tearing" class="headerlink" title="五、屏幕撕裂 Screen Tearing"></a><font color="#1E90FF">五、屏幕撕裂 <code>Screen Tearing</code></font></h2><p>CPU + GPU 的渲染流程是一个非常耗时的过程。如果在电子束开始扫描新的一帧时，位图还没有渲染好，而是在扫描到屏幕中间时才渲染完成，被放入帧缓冲器中，那么已扫描的部分就是上一帧的画面，而未扫描的部分则会显示新的一帧图像，这就造成屏幕撕裂。</p>
+<p>解决屏幕撕裂、提高显示效率的一个策略就是使用垂直同步信号与双缓冲机制。</p>
+<p>iOS 设备会使用 V-sync + Double Buffering 的策略，双缓冲机制会增加一个新的备用缓冲区(back buffer)。</p>
+<h2 id="六、垂直同步信号-V-sync-双缓冲机制-Double-Buffering"><a href="#六、垂直同步信号-V-sync-双缓冲机制-Double-Buffering" class="headerlink" title="六、垂直同步信号 V-sync + 双缓冲机制 Double Buffering"></a><font color="#1E90FF">六、垂直同步信号 <code>V-sync</code> + 双缓冲机制 <code>Double Buffering</code></font></h2><p><code>V-sync</code> 相当于给帧缓冲器加锁：当电子束完成一帧的扫描，将要从头开始扫描时，会发出一个V-sync，只有视频控制器接受到V-sync才会将帧缓冲器中的位图更新为下一帧，这样保证每次显示的都是同一帧的画面，避免屏幕撕裂。</p>
+<p>双缓冲器机制会增加一个备用缓冲器(back buffer)，渲染结果会原先保存在 <code>back buffer</code> 中，当视频控制器接受到 <code>V-sync</code> 时，会将 <code>back buffer</code> 中的内容置换到 <code>frame buffer</code> 中，此时就能保证置换操作几乎在一瞬间完成，置换操作实际上是交换了 <code>back buffer</code> 与 <code>frame buffer</code> 的内存地址。</p>
+<h2 id="七、掉帧-Jank"><a href="#七、掉帧-Jank" class="headerlink" title="七、掉帧 Jank"></a><font color="#1E90FF">七、掉帧 Jank</font></h2><p>垂直同步信号 + 双缓冲机制能够解决屏幕撕裂的问题，但是会引入新的问题：掉帧。</p>
+<p>如果在接受到 <code>V-sync</code> 时，CPU与GPU还没有渲染好新的位图，视频控制器就不会去置换 <code>frame buffer</code> 中的位图，这时屏幕就会重新扫描呈现出上一帧的画面，相当于两个周期显示了同样的画面，这就是掉帧。</p>
+<p>三缓冲 <code>Triple Buffering</code></p>
+<p>利用CPU与GPU闲置时间进行下一步渲染，并将渲染结果暂存新增的缓冲器中，达到减少掉帧的次数。</p>
+<p>1、CPU 和 GPU 渲染耗时过长，在垂直同步信号 Vsync到来时计算还未完成，导致掉帧；</p>
+<p>2、V-sync与双缓存的意义：强制同步屏幕刷新，以掉帧为代价解决屏幕撕裂的问题；</p>
+<p>3、三缓冲的意义：合理使用CUP、GPU渲染性能，减少掉帧次数。</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/alipay.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/wechat.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://i-stack.github.io/" target="_blank">大唐盛世</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/594a2f27.html" class="pre-post btn btn-default" title='layoutSubviews、layoutIfNeeded、setNeedsLayout区别'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            layoutSubviews、layoutIfNeeded、setNeedsLayout区别</span>
+    </a>
+    
+    
+    <a href="/e32dbe82.html" class="next-post btn btn-default" title='天道语录（持续更新）'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            天道语录（持续更新）</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+(function() {
+    var appid = 'cywx8yBY9';
+    var conf = 'prod_4295944241e2145f25f438e04b2ed613';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) { window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else {
+        var loadJs = function(d, a) {
+            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+            var b = document.createElement("script");
+            b.setAttribute("type", "text/javascript");
+            b.setAttribute("charset", "UTF-8");
+            b.setAttribute("src", d);
+            if (typeof a === "function") { if (window.attachEvent) { b.onreadystatechange = function() { var e = b.readyState; if (e === "loaded" || e === "complete") { b.onreadystatechange = null;
+                            a() } } } else { b.onload = a } }
+            c.appendChild(b)
+        };
+        loadJs("https://changyan.sohu.com/upload/changyan.js", function() { window.changyan.api.config({ appid: appid, conf: conf }) });
+    }
+})();
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CPU-Central-Processing-Unit"><span class="toc-text">一、CPU(Central Processing Unit)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81GPU-Graphics-Processing-Unit"><span class="toc-text">二、GPU(Graphics Processing Unit)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-text">三、图像渲染流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9AApplication-%E5%BA%94%E7%94%A8%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-text">第一阶段：Application 应用处理阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9AGeometry-%E5%87%A0%E4%BD%95%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-text">第二阶段：Geometry 几何处理阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9ARasterization%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">第三阶段：Rasterization光栅化阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9APixel-%E5%83%8F%E7%B4%A0%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-text">第四阶段：Pixel 像素处理阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%B1%8F%E5%B9%95%E6%88%90%E5%83%8F"><span class="toc-text">四、屏幕成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B1%8F%E5%B9%95%E6%92%95%E8%A3%82-Screen-Tearing"><span class="toc-text">五、屏幕撕裂 Screen Tearing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%9E%82%E7%9B%B4%E5%90%8C%E6%AD%A5%E4%BF%A1%E5%8F%B7-V-sync-%E5%8F%8C%E7%BC%93%E5%86%B2%E6%9C%BA%E5%88%B6-Double-Buffering"><span class="toc-text">六、垂直同步信号 V-sync + 双缓冲机制 Double Buffering</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%8E%89%E5%B8%A7-Jank"><span class="toc-text">七、掉帧 Jank</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="//beian.miit.gov.cn/" target="_blank" rel="nofollow">
+                        豫ICP备2022028466号</a>
+                    
+                </span> |
+                <span>
+                    <a href="www.myyhq.top" class="copyright-links" target="_blank" rel="nofollow">商城领券儿</a>
+                </span> |
+                <span>
+                    <a href="https://hyzone.xxk8a2f5.top" class="copyright-links" target="_blank" rel="nofollow">资源站</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body>
+</html>

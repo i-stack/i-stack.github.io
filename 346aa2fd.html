@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="辰沙资源">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <meta property="og:title" content="事件响应链和传递链">
+    <meta property="og:type" content="website">
+    <link rel="dns-prefetch" href="https://www.freelibrary.top">
+    <!--SEO-->
+
+<meta name="keywords" content="教程" />
+
+
+<meta name="description" content="iOS的事件由事件的响应链和传递链构成；先通过传递链传递下去，找到可以响应的UIResponse。
+传递链：由系统向最上层的view传递，Application -&gt; window -&g..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    事件响应链和传递链 |
+    
+    辰沙资源
+</title>
+
+<link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+<meta name="baidu-site-verification" content="codeva-7tnz9mgYod" />
+
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d7081b62deb4d103aca073589b382ffd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC9BJCZB6X"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-WC9BJCZB6X');
+    </script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='大唐盛世'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.freelibrary.top">
+                        辰沙资源</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/项目资源/"><i class="fa "></i>
+                                项目资源</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/商业案例/"><i class="fa "></i>
+                                商业案例</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/技术教程/"><i class="fa "></i>
+                                技术教程</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="事件响应链和传递链">
+            
+            事件响应链和传递链
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/03/14</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>iOS的事件由事件的响应链和传递链构成；先通过传递链传递下去，找到可以响应的UIResponse。</p>
+<p>传递链：由系统向最上层的view传递，Application -&gt; window -&gt; root view -&gt; … -&gt; first view </p>
+<p>响应链：由最上层的view向系统传递，first view -&gt; super view -&gt; … -&gt; view controller -&gt; window -&gt; Application -&gt; AppDelegate</p>
+<h2 id="一、事件传递链传递流程"><a href="#一、事件传递链传递流程" class="headerlink" title="一、事件传递链传递流程"></a><font color="#1E90FF">一、事件传递链传递流程</font></h2><p>1、用户点击屏幕：系统检测到手指触摸操作时，系统会将这个事件打包成一个UIEvent对象加入到Application的事件队列（为什么是事件队列？先进先出）；</p>
+<p>2、UIApplication会从事件队列中依次取出事件，传递给UIWindow；</p>
+<p>3、UIWindow对象会调用<code>hitTest:withEvent:</code>方法查找触摸操作所在的view；</p>
+<h3 id="1-1-hitTest-withEvent方法处理流程"><a href="#1-1-hitTest-withEvent方法处理流程" class="headerlink" title="1.1 hitTest:withEvent方法处理流程"></a>1.1 <code>hitTest:withEvent</code>方法处理流程</h3><p>1、首先调用当前试图的<code>pointInside:withEvent:</code>方法判断触摸点是否在当前视图内；</p>
+<p>2、若返回NO，<code>hitTest:withEvent:</code>此时会返回nil；</p>
+<p>3、若返回YES，向当前视图的所有子视图发送<code>hitTest:withEvent</code>消息，所有子视图遍历顺序是从最顶层到最底层，直到有子视图返回非空对象或者全部子视图遍历完成；遍历到每一个子控件后，会重复1、2、3三个步骤；</p>
+<p>4、若第一次有子视图返回非空对象，则<code>hitTest:withEvent</code>返回此对象，处理结束；</p>
+<p>5、若所有子视图都返回空，则<code>hitTest:withEvent</code>返回self。</p>
+<h3 id="1-2-hitTest-withEvent方法的底层实现"><a href="#1-2-hitTest-withEvent方法的底层实现" class="headerlink" title="1.2 hitTest:withEvent方法的底层实现"></a>1.2 <code>hitTest:withEvent</code>方法的底层实现</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {</span><br><span class="line">    // 判断能否接收事件</span><br><span class="line">         if (self.userInteractionEnabled == NO || self.hidden == YES ||  self.alpha &lt;= 0.01) return nil; </span><br><span class="line"></span><br><span class="line">        // 判断当前触摸点是否在view上  </span><br><span class="line">        if ([self pointInside:point withEvent:event] == NO) return nil;  // 不在view上</span><br><span class="line"></span><br><span class="line">        // 从后往前遍历子控件数组 </span><br><span class="line">        int count = (int)self.subviews.count; </span><br><span class="line">        for (int i = count - 1; i &gt;= 0; i--) { </span><br><span class="line">            UIView *childView = self.subviews[i]; </span><br><span class="line">            CGPoint childP = [self convertPoint:point toView:childView]; </span><br><span class="line">            UIView *fitView = [childView hitTest:childP withEvent:event]; </span><br><span class="line">        // 找到最合适的view </span><br><span class="line">            if (fitView) { </span><br><span class="line">                return fitView; </span><br><span class="line">            }</span><br><span class="line">        } </span><br><span class="line">        // 没有找到更合适的view，也就是没有比自己更合适的view </span><br><span class="line">        return self;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event</span><br></pre></td></tr></tbody></table></figure>
+
+<p>判断下传入过来的点在不在方法调用者的坐标系上。返回YES表示触摸点在坐标系上，返回NO表示触摸点不在坐标系上。</p>
+<h3 id="1-3-拦截事件的处理"><a href="#1-3-拦截事件的处理" class="headerlink" title="1.3 拦截事件的处理"></a>1.3 拦截事件的处理</h3><p><code>hitTest:withEvent</code>可以返回事件最合适的view，可以重写<code>hitTest:withEvent</code>方法，返回指定的view作为最合适的view。</p>
+<h2 id="二、事件响应链传递流程"><a href="#二、事件响应链传递流程" class="headerlink" title="二、事件响应链传递流程"></a><font color="#1E90FF">二、事件响应链传递流程</font></h2><p>1、如果当前这个view是控制器的view，就传递给控制器；如果不是控制器的view，就传递给父控件；</p>
+<p>2、在视图层次结构的的最顶层，如果不能处理事件，那么就传递给UIWindow;</p>
+<p>3、如果UIWindow不能处理事件，那么就传递给UIApplication;</p>
+<p>4、如果UIApplication不能处理事件，那么就会丢弃该次事件。</p>
+<p><img src="/346aa2fd/ResponderChains.png"></p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/alipay.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/wechat.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://i-stack.github.io/" target="_blank">大唐盛世</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/59c46129.html" class="pre-post btn btn-default" title='离屏渲染'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            离屏渲染</span>
+    </a>
+    
+    
+    <a href="/f75d2c59.html" class="next-post btn btn-default" title='渲染框架'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            渲染框架</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+(function() {
+    var appid = 'cywx8yBY9';
+    var conf = 'prod_4295944241e2145f25f438e04b2ed613';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) { window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else {
+        var loadJs = function(d, a) {
+            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+            var b = document.createElement("script");
+            b.setAttribute("type", "text/javascript");
+            b.setAttribute("charset", "UTF-8");
+            b.setAttribute("src", d);
+            if (typeof a === "function") { if (window.attachEvent) { b.onreadystatechange = function() { var e = b.readyState; if (e === "loaded" || e === "complete") { b.onreadystatechange = null;
+                            a() } } } else { b.onload = a } }
+            c.appendChild(b)
+        };
+        loadJs("https://changyan.sohu.com/upload/changyan.js", function() { window.changyan.api.config({ appid: appid, conf: conf }) });
+    }
+})();
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E9%93%BE%E4%BC%A0%E9%80%92%E6%B5%81%E7%A8%8B"><span class="toc-text">一、事件传递链传递流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-hitTest-withEvent%E6%96%B9%E6%B3%95%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-text">1.1 hitTest:withEvent方法处理流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-hitTest-withEvent%E6%96%B9%E6%B3%95%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-text">1.2 hitTest:withEvent方法的底层实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E6%8B%A6%E6%88%AA%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-text">1.3 拦截事件的处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BA%8B%E4%BB%B6%E5%93%8D%E5%BA%94%E9%93%BE%E4%BC%A0%E9%80%92%E6%B5%81%E7%A8%8B"><span class="toc-text">二、事件响应链传递流程</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="//beian.miit.gov.cn/" target="_blank" rel="nofollow">
+                        豫ICP备2022028466号</a>
+                    
+                </span> |
+                <span>
+                    <a href="www.myyhq.top" class="copyright-links" target="_blank" rel="nofollow">商城领券儿</a>
+                </span> |
+                <span>
+                    <a href="https://hyzone.xxk8a2f5.top" class="copyright-links" target="_blank" rel="nofollow">资源站</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body>
+</html>

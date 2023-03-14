@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="辰沙资源">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <meta property="og:title" content="渲染框架">
+    <meta property="og:type" content="website">
+    <link rel="dns-prefetch" href="https://www.freelibrary.top">
+    <!--SEO-->
+
+<meta name="keywords" content="教程" />
+
+
+<meta name="description" content="一、Core GraphicsCore Graphics 是一个强大的二维图像绘制引擎，是 iOS 的核心图形库，常用的比如 CGRect 就定义在这个框架下。
+二、Core Animation..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    渲染框架 |
+    
+    辰沙资源
+</title>
+
+<link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+
+
+
+    
+<meta name="baidu-site-verification" content="codeva-7tnz9mgYod" />
+
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?d7081b62deb4d103aca073589b382ffd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WC9BJCZB6X"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-WC9BJCZB6X');
+    </script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='大唐盛世'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://www.freelibrary.top">
+                        辰沙资源</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/项目资源/"><i class="fa "></i>
+                                项目资源</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/商业案例/"><i class="fa "></i>
+                                商业案例</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/技术教程/"><i class="fa "></i>
+                                技术教程</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="渲染框架">
+            
+            渲染框架
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-none-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2023/03/14</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="一、Core-Graphics"><a href="#一、Core-Graphics" class="headerlink" title="一、Core Graphics"></a><font color="#1E90FF">一、Core Graphics</font></h2><p><code>Core Graphics</code> 是一个强大的二维图像绘制引擎，是 <code>iOS</code> 的核心图形库，常用的比如 <code>CGRect</code> 就定义在这个框架下。</p>
+<h2 id="二、Core-Animation"><a href="#二、Core-Animation" class="headerlink" title="二、Core Animation"></a><font color="#1E90FF">二、Core Animation</font></h2><p>1、在 <code>iOS</code> 上，几乎所有的东西都是通过 <code>Core Animation</code> 绘制出来，主要用于：渲染、构建和实现动画；</p>
+<p>2、<code>Core Animation</code> 尽可能快地组合屏幕上不同的可视内容，这个内容是被分解成独立的&nbsp;<code>CALayer</code>，并且被存储为树状层级结构；</p>
+<p>3、<code>CALayer</code> 是屏幕显示的基础，在 <code>CALayer.h</code> 中，<code>CALayer</code> 有一个 <code>contents</code> 属性保存了设备流水线渲染好的位图 <code>bitmap</code>（通常也被称为&nbsp;backing store），而当设备屏幕进行刷新时，会从 <code>CALayer</code> 中读取生成好的 <code>bitmap</code>，进而呈现到屏幕上；</p>
+<p>4、所以每次渲染时，<code>Core Animation</code> 会触发调用&nbsp;<code>drawRect:</code>&nbsp;方法，使用存储好的 <code>bitmap</code> 进行新一轮的展示。</p>
+<h2 id="三、Core-Animation-渲染流程"><a href="#三、Core-Animation-渲染流程" class="headerlink" title="三、Core Animation 渲染流程"></a><font color="#1E90FF">三、Core Animation 渲染流程</font></h2><p>![](Pasted Graphic.png)</p>
+<h3 id="3-1-Handle-Events"><a href="#3-1-Handle-Events" class="headerlink" title="3.1 Handle Events"></a>3.1 Handle Events</h3><p>这个过程中会先处理点击事件，有可能会需要改变页面的布局和界面层次。</p>
+<h3 id="3-2-Commit-Transaction"><a href="#3-2-Commit-Transaction" class="headerlink" title="3.2 Commit Transaction"></a>3.2 Commit Transaction</h3><p>此时 app 会通过 CPU 处理显示内容的前置计算，比如布局计算、图片解码等任务，之后将计算好的图层进行打包发给&nbsp;Render Server。</p>
+<p>Layout ：构建 UI， 布局，文本计算等；具体步骤包括：</p>
+<p>调用重载 layoutSubviews方法；</p>
+<p>创建视图，并通过addSubview方法添加子视图</p>
+<p>计算视图布局，即所有的Layout Constraint</p>
+<p>Display ：视图绘制</p>
+<p>这个阶段主要是Core Graphics进行视图绘制，不是真正的现实，而是得到图元数据。</p>
+<p>如果重写drawRect:方法，会在drawRect:方法中绘制得到bitmap数据，实现自定义视图的绘制；</p>
+<p>重写drawRect:方法，绘制过程将从GPU转移到CPU，导致一定的效率损失，这个过程会额外使用CPU和内存，容易造成CPU卡顿或者内存警告。</p>
+<p>Prepare ：附加步骤</p>
+<p>主要做图片解码和转换。</p>
+<p>Commit ：将 layer 递归打包发送</p>
+<p>递归将图层打包发送到Render Server。</p>
+<p>如果图层树过于复杂，commit开销大，这就是减少视图层级，降低图层树复杂度的原因。</p>
+<h3 id="3-3-Decode"><a href="#3-3-Decode" class="headerlink" title="3.3 Decode"></a>3.3 Decode</h3><p>打包好的图层被传输到&nbsp;Render Server&nbsp;之后，首先会进行解码。完成解码之后需要等待下一个 RunLoop 才会执行下一步&nbsp;Draw Calls。</p>
+<h3 id="3-4-Draw-Calls"><a href="#3-4-Draw-Calls" class="headerlink" title="3.4 Draw Calls"></a>3.4 Draw Calls</h3><p>解码完成后，Core Animation 会调用下层渲染框架（比如 OpenGL 或者 Metal）的方法进行绘制，进而调用到 GPU。</p>
+<h3 id="3-5-Render-Server"><a href="#3-5-Render-Server" class="headerlink" title="3.5 Render Server"></a>3.5 Render Server</h3><p>这一阶段主要由 GPU 进行渲染，通常是OpneGL或者Metal。</p>
+<p>将数据反序列化得到图层数；</p>
+<p>根据图层树的图层顺序、RGBA值、图层 frame 等过滤掉图层中被遮挡的部分；</p>
+<p>将图层树转为渲染树提交给 OpenGL / Metal；</p>
+<p>OpenGL / Metal 生成绘制命令，等待 V-Sync 信号到来，随后提交到命令缓冲区 Command Buffer 供 GPU 读取执行。</p>
+<h3 id="3-6-Display"><a href="#3-6-Display" class="headerlink" title="3.6 Display"></a>3.6 Display</h3><p>显示阶段，需要等&nbsp;render&nbsp;结束的下一个 RunLoop 触发显示。</p>
+<h2 id="四、Core-Image"><a href="#四、Core-Image" class="headerlink" title="四、Core Image"></a><font color="#1E90FF">四、Core Image</font></h2><p>Core Image 是一个高性能的图像处理分析的框架，它拥有一系列现成的图像滤镜，能对已存在的图像进行高效的处理。</p>
+<h2 id="五、Metal"><a href="#五、Metal" class="headerlink" title="五、Metal"></a><font color="#1E90FF">五、Metal</font></h2><p>Metal 类似于 OpenGL ES，也是一套第三方标准，具体实现由苹果实现。Core Animation、Core Image、SceneKit、SpriteKit 等等渲染框架都是构建于 Metal 之上的。</p>
+
+    </div>
+    
+    <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            <span class="reward-type">
+                <img class="alipay" src="/img/alipay.png"><b>支付宝打赏</b>
+            </span>
+            
+            
+            <span class="reward-type">
+                <img class="wechat" src="/img/wechat.png"><b>微信打赏</b>
+            </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">
+        赞赏是不耍流氓的鼓励
+    </p>
+</div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="https://i-stack.github.io/" target="_blank">大唐盛世</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/346aa2fd.html" class="pre-post btn btn-default" title='事件响应链和传递链'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            事件响应链和传递链</span>
+    </a>
+    
+    
+    <a href="/594a2f27.html" class="next-post btn btn-default" title='layoutSubviews、layoutIfNeeded、setNeedsLayout区别'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            layoutSubviews、layoutIfNeeded、setNeedsLayout区别</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    <!--PC和WAP自适应版-->
+<div id="SOHUCS"></div>
+<script type="text/javascript">
+(function() {
+    var appid = 'cywx8yBY9';
+    var conf = 'prod_4295944241e2145f25f438e04b2ed613';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) { window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else {
+        var loadJs = function(d, a) {
+            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+            var b = document.createElement("script");
+            b.setAttribute("type", "text/javascript");
+            b.setAttribute("charset", "UTF-8");
+            b.setAttribute("src", d);
+            if (typeof a === "function") { if (window.attachEvent) { b.onreadystatechange = function() { var e = b.readyState; if (e === "loaded" || e === "complete") { b.onreadystatechange = null;
+                            a() } } } else { b.onload = a } }
+            c.appendChild(b)
+        };
+        loadJs("https://changyan.sohu.com/upload/changyan.js", function() { window.changyan.api.config({ appid: appid, conf: conf }) });
+    }
+})();
+</script>
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Core-Graphics"><span class="toc-text">一、Core Graphics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Core-Animation"><span class="toc-text">二、Core Animation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Core-Animation-%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B"><span class="toc-text">三、Core Animation 渲染流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Handle-Events"><span class="toc-text">3.1 Handle Events</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-Commit-Transaction"><span class="toc-text">3.2 Commit Transaction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-Decode"><span class="toc-text">3.3 Decode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-Draw-Calls"><span class="toc-text">3.4 Draw Calls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Render-Server"><span class="toc-text">3.5 Render Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-Display"><span class="toc-text">3.6 Display</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Core-Image"><span class="toc-text">四、Core Image</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Metal"><span class="toc-text">五、Metal</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2020
+                    <a href="//beian.miit.gov.cn/" target="_blank" rel="nofollow">
+                        豫ICP备2022028466号</a>
+                    
+                </span> |
+                <span>
+                    <a href="www.myyhq.top" class="copyright-links" target="_blank" rel="nofollow">商城领券儿</a>
+                </span> |
+                <span>
+                    <a href="https://hyzone.xxk8a2f5.top" class="copyright-links" target="_blank" rel="nofollow">资源站</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/assets/tagcanvas.min.js?rev=2.9.js"></script>
+
+<script>
+var tagOption = {
+    textColour: '#444', // 字体颜色
+    outlineMethod: 'block', // 选中模式
+    outlineColour: '#FFDAB9', // 选中模式的颜色
+    interval: 30 || 30, // 动画帧之间的时间间隔，值越大，转动幅度越大
+    textHeight: 13,
+    outlineRadius: 3,
+    freezeActive: true || '', // 选中的标签是否继续滚动
+    frontSelect: true || '', // 不选标签云后部的标签
+    initial: [0.1, -0.1],
+    depth: 0.5,
+    decel: 0.95,
+    maxSpeed: 0.03,
+    reverse: true || '', // 是否反向触发
+    fadeIn: 500, // 进入动画时间
+    wheelZoom: false || '' // 是否启用鼠标滚轮
+}
+TagCanvas.Start('tag-cloud-3d', '', tagOption);
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+
+</body>
+</html>
