@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="./static/js/query.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body>
+    <div class="hd">
+        <h1 style="text-align: center">手机归属地查询</h1>
+    </div>
+
+    <div class="bd">
+        <div class="search" >
+            <input type="text" id="inputBox" placeholder="请输入11位手机号" >
+            <button onclick="query()">查询</button>
+        </div>
+    </div>
+
+    <div class="search">
+        <table id="result" class="center" hidden="true">
+            <thead>
+                <tr>
+                    <th colspan="2" class="center">
+                        <p>查询结果</p>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><p>查询的手机号码</p></td>
+                    <td id="mobile"><p></p></td>
+                </tr>
+                <tr>
+                    <td><p>归属地省份</p></td>
+                    <td id="province"><p></p></td>
+                </tr>
+                <tr>
+                    <td><p>运营商</p></td>
+                    <td id="carrier"><p></p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+	<script>
+        function display(data) {
+            document.getElementById("result").hidden = false
+            document.getElementById("mobile").getElementsByTagName("p")[0].innerHTML = data.mobile;
+            document.getElementById("province").getElementsByTagName("p")[0].innerHTML = data.province;
+            document.getElementById("carrier").getElementsByTagName("p")[0].innerHTML = data.carrier;
+        }
+
+		function query() {
+			var inputBox = document.getElementById("inputBox");
+            var queryContent = inputBox.value;
+            queryMobileUrl(queryContent, display)
+        }
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+.tbaru {
+    display: block;
+    color: sandybrown;
+    font-weight: "bold";
+    text-align: "center";
+    font-size:14px;
+    width: 500px; 
+    height: 36px;
+    margin: 0 auto;
+}
+
+.sign-submit {
+    margin-top: 20px;
+    background-color: #44EE66;
+    border: none;        
+    color: white; 
+    width: 500px; 
+    height: 36px;
+}
+
+.ipt {
+    margin-top: 20px;
+    line-height: 1;
+    padding: 10px 12px;
+    border: 1px solid #e4e4e4;
+    width: 474px; 
+    color: #4e585a;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    font-size: 0.875rem;
+    display: block; /* 将输入框转换为块元素 */
+    margin: 0 auto;
+}
+
+div.search {
+    text-align: center;
+    padding: 30px 0; 
+}
+
+h3.bold {
+    margin-left: 20px;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: #202935;
+}
+
+pre {
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color: #272822;
+    height: 50px;
+    font-size: 14px;
+    color: #F8F8D4;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+div.result {
+    /* 设置文字水平对齐方式为居中 */
+    text-align: center;
+    /* 文本设置行高为该父元素的高度即可垂直居中 */
+    line-height: 50px;
+}
+
+a.btn-success {
+    background-color: #4BAE4F;
+    border: none;        
+    color: white; 
+    width: 80px; 
+    height: 80px;
+}

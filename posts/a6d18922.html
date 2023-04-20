@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>渲染原理 | 辰沙资源</title><meta name="author" content="大唐盛世"><meta name="copyright" content="大唐盛世"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="keywords"><meta name="description" content="CPU(Central Processing Unit)1、现代计算机整个系统的运算核心、控制核心； 2、能处理大量不同的跳转、中断等指令； 3、CPU 拥有更多的缓存空间 Cache 以及复杂的控制单元，计算能力并不是 CPU 的主要诉求； 4、CPU 是设计目标是低时延，更多的高速缓存也意味着可以更快地访问数据；同时复杂的控制单元也能更快速地处理逻辑分支，更适合串行计算。 GPU(Graphi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渲染原理">
+<meta property="og:url" content="https://www.freelibrary.top/posts/a6d18922.html">
+<meta property="og:site_name" content="辰沙资源">
+<meta property="og:description" content="CPU(Central Processing Unit)1、现代计算机整个系统的运算核心、控制核心； 2、能处理大量不同的跳转、中断等指令； 3、CPU 拥有更多的缓存空间 Cache 以及复杂的控制单元，计算能力并不是 CPU 的主要诉求； 4、CPU 是设计目标是低时延，更多的高速缓存也意味着可以更快地访问数据；同时复杂的控制单元也能更快速地处理逻辑分支，更适合串行计算。 GPU(Graphi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.freelibrary.top/images/head.jpeg">
+<meta property="article:published_time" content="2022-01-03T02:49:58.000Z">
+<meta property="article:modified_time" content="2023-04-18T13:10:43.829Z">
+<meta property="article:author" content="大唐盛世">
+<meta property="article:tag" content="iOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.freelibrary.top/images/head.jpeg"><link rel="shortcut icon" href="/images/icon.png"><link rel="canonical" href="https://www.freelibrary.top/posts/a6d18922.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="G-WC9BJCZB6X"/><meta name="baidu-site-verification" content="d7081b62deb4d103aca073589b382ffd"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-2806990260680858',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '渲染原理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-18 21:10:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.0.0-rc1">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/head.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">380</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-leaf"></i><span> 资源分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-tree"></i><span> 源码分享</span></a></li><li><a class="site-page child" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/"><i class="fa-fw fas fa-key"></i><span> 商业案例</span></a></li><li><a class="site-page child" href="/categories/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-file"></i><span> 课程分享</span></a></li><li><a class="site-page child" href="/categories/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-train"></i><span> 项目资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><i class="fa-fw fas fa-archive"></i><span> 技术教程</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-book"></i><span> 读书笔记</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-bookmark"></i><span> 笔记</span></a></li><li><a class="site-page child" href="/pages/poetry/"><i class="fa-fw fas fa-pencil-square"></i><span> 诗词</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%8B%E5%85%B8/"><i class="fa-fw fas fa-history"></i><span> 事典</span></a></li><li><a class="site-page child" href="/pages/wenan/"><i class="fa-fw fas fa-bold"></i><span> 文案</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-refresh"></i><span> 本地生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9/"><i class="fa-fw fas fa-newspaper"></i><span> 今日热点</span></a></li><li><a class="site-page child" href="/pages/todayOil/"><i class="fa-fw fas fa-inbox"></i><span> 今日油价</span></a></li><li><a class="site-page child" href="/pages/query/"><i class="fa-fw fas fa-times"></i><span> 便民查询</span></a></li><li><a class="site-page child" href="/pages/gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸合集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/bg_image.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="辰沙资源"><span class="site-name">辰沙资源</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-leaf"></i><span> 资源分享</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-tree"></i><span> 源码分享</span></a></li><li><a class="site-page child" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/"><i class="fa-fw fas fa-key"></i><span> 商业案例</span></a></li><li><a class="site-page child" href="/categories/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-file"></i><span> 课程分享</span></a></li><li><a class="site-page child" href="/categories/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-train"></i><span> 项目资源</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"><i class="fa-fw fas fa-archive"></i><span> 技术教程</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-book"></i><span> 读书笔记</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-bookmark"></i><span> 笔记</span></a></li><li><a class="site-page child" href="/pages/poetry/"><i class="fa-fw fas fa-pencil-square"></i><span> 诗词</span></a></li><li><a class="site-page child" href="/categories/%E4%BA%8B%E5%85%B8/"><i class="fa-fw fas fa-history"></i><span> 事典</span></a></li><li><a class="site-page child" href="/pages/wenan/"><i class="fa-fw fas fa-bold"></i><span> 文案</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fa-fw fas fa-refresh"></i><span> 本地生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9/"><i class="fa-fw fas fa-newspaper"></i><span> 今日热点</span></a></li><li><a class="site-page child" href="/pages/todayOil/"><i class="fa-fw fas fa-inbox"></i><span> 今日油价</span></a></li><li><a class="site-page child" href="/pages/query/"><i class="fa-fw fas fa-times"></i><span> 便民查询</span></a></li><li><a class="site-page child" href="/pages/gallery/"><i class="fa-fw fas fa-images"></i><span> 壁纸合集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">渲染原理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-03T02:49:58.000Z" title="发表于 2022-01-03 10:49:58">2022-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-18T13:10:43.829Z" title="更新于 2023-04-18 21:10:43">2023-04-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="渲染原理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="CPU-Central-Processing-Unit"><a href="#CPU-Central-Processing-Unit" class="headerlink" title="CPU(Central Processing Unit)"></a><font color="#1E90FF">CPU(Central Processing Unit)</font></h2><p>1、现代计算机整个系统的运算核心、控制核心；</p>
+<p>2、能处理大量不同的跳转、中断等指令；</p>
+<p>3、CPU 拥有更多的缓存空间 Cache 以及复杂的控制单元，计算能力并不是 CPU 的主要诉求；</p>
+<p>4、CPU 是设计目标是低时延，更多的高速缓存也意味着可以更快地访问数据；同时复杂的控制单元也能更快速地处理逻辑分支，更适合串行计算。</p>
+<h2 id="GPU-Graphics-Processing-Unit"><a href="#GPU-Graphics-Processing-Unit" class="headerlink" title="GPU(Graphics Processing Unit)"></a><font color="#1E90FF">GPU(Graphics Processing Unit)</font></h2><p>1、进行绘图运算工作的专用微处理器，是连接计算机和显示终端的纽带；</p>
+<p>2、适合大规模的并行计算。</p>
+<h2 id="图像渲染流水线"><a href="#图像渲染流水线" class="headerlink" title="图像渲染流水线"></a><font color="#1E90FF">图像渲染流水线</font></h2><p><img src="/posts/a6d18922/Application.png"><br>￼</p>
+<h3 id="第一阶段：Application-应用处理阶段"><a href="#第一阶段：Application-应用处理阶段" class="headerlink" title="第一阶段：Application 应用处理阶段"></a>第一阶段：Application 应用处理阶段</h3><p>CUP对图像进行操作和改变得到图元，通常是三角形、线段、顶点等，然后将新的图像信息传递给下一阶段。</p>
+<h3 id="第二阶段：Geometry-几何处理阶段"><a href="#第二阶段：Geometry-几何处理阶段" class="headerlink" title="第二阶段：Geometry 几何处理阶段"></a>第二阶段：Geometry 几何处理阶段</h3><p>GPU处理上一阶段的图元信息，然后输出新的图元，这一阶段包括：</p>
+<p>1、顶点着色器(Vertex Shader)：这个阶段会将图元中的顶点信息进行视角转换、添加光照信息、增加纹理等操作；</p>
+<p>2、形状装配(Shape Assembly)：图元中的三角形、线段、点分别对应3个Vertex、2个Vertex、1Vertex，这个阶段会将Vertex连接成相应的形状；</p>
+<p>3、几何着色器(Geometry Shader)：通过三角形、线段、点构建更复杂的几何图形。</p>
+<h3 id="第三阶段：Rasterization光栅化阶段"><a href="#第三阶段：Rasterization光栅化阶段" class="headerlink" title="第三阶段：Rasterization光栅化阶段"></a>第三阶段：Rasterization光栅化阶段</h3><p>光栅化的主要目的是将几何渲染之后的图元信息转换为像素，用于后续显示在屏幕上。</p>
+<h3 id="第四阶段：Pixel-像素处理阶段"><a href="#第四阶段：Pixel-像素处理阶段" class="headerlink" title="第四阶段：Pixel 像素处理阶段"></a>第四阶段：Pixel 像素处理阶段</h3><p>经过光栅化阶段，得到了图元所对应的像素，给这些像素填充颜色和效果，最终显示在屏幕上。</p>
+<p>这些经过处理、蕴含大量信息的像素点集合，被称作位图(bitmap)，存在帧缓冲区(Framebuffer)中。</p>
+<p>1、片段着色器(Fragment Shader)：也叫Pixel Shader，目的是给每一个像素赋予正确的颜色，这些颜色的来源就是之前得到的顶点、纹理、光照等信息。由于需要处理纹理、光照等复杂信息，这部分是整个系统的性能瓶颈。</p>
+<p>2、测试与混合(Tests and Blending)：也叫Merging阶段，这个阶段主要处理片段的前后位置以及透明度。</p>
+<p>检测各个着色片段的深度值z坐标，从而判断片段的前后位置，计算相应的透明度 alpha 值，从而进行片段的混合，得到最终的颜色。</p>
+<p>GUP最后一步渲染结束之后的像素信息，被存在帧缓冲器（Frame Buffer）中。</p>
+<h2 id="屏幕成像"><a href="#屏幕成像" class="headerlink" title="屏幕成像"></a><font color="#1E90FF">屏幕成像</font></h2><p>在图像渲染流程结束后，接下来就需要将得到的像素信息显示在物理屏幕上。</p>
+<p><img src="/posts/a6d18922/BUS.png"><br>￼<br>当垂直同步信号 <code>Vsync</code> 到来时，显示器的电子束会从屏幕的左上角开始逐行扫描，屏幕上的每个点的图像信息都是视频控制器从帧缓冲区中进行读取，在屏幕上显示。</p>
+<p>当电子束完成一帧的扫描，将要从头开始扫描时，就会发出一个垂直同步信号，视频控制器接收到 <code>Vsync</code> 之后，会将帧缓冲区中的位图更新为下一帧。<br>￼<br>1、电子束扫描的过程中，屏幕就能呈现出对应的结果，每次整个屏幕被扫描完一次后，就相当于呈现了一帧完整的图像。</p>
+<p>2、屏幕不断地刷新，不停呈现新的帧，就能呈现出连续的影像。</p>
+<p>3、屏幕刷新的频率，就是帧率(Frame per Second，FPS)。对于 iOS 而言，app 应该尽量保证 60 FPS 才是最好的体验。</p>
+<h2 id="屏幕撕裂-Screen-Tearing"><a href="#屏幕撕裂-Screen-Tearing" class="headerlink" title="屏幕撕裂 Screen Tearing"></a><font color="#1E90FF">屏幕撕裂 <code>Screen Tearing</code></font></h2><p>CPU + GPU 的渲染流程是一个非常耗时的过程。如果在电子束开始扫描新的一帧时，位图还没有渲染好，而是在扫描到屏幕中间时才渲染完成，被放入帧缓冲器中，那么已扫描的部分就是上一帧的画面，而未扫描的部分则会显示新的一帧图像，这就造成屏幕撕裂。</p>
+<p>解决屏幕撕裂、提高显示效率的一个策略就是使用垂直同步信号与双缓冲机制。</p>
+<p>iOS 设备会使用 V-sync + Double Buffering 的策略，双缓冲机制会增加一个新的备用缓冲区(back buffer)。</p>
+<h2 id="垂直同步信号-V-sync-双缓冲机制-Double-Buffering"><a href="#垂直同步信号-V-sync-双缓冲机制-Double-Buffering" class="headerlink" title="垂直同步信号 V-sync + 双缓冲机制 Double Buffering"></a><font color="#1E90FF">垂直同步信号 <code>V-sync</code> + 双缓冲机制 <code>Double Buffering</code></font></h2><p><code>V-sync</code> 相当于给帧缓冲器加锁：当电子束完成一帧的扫描，将要从头开始扫描时，会发出一个V-sync，只有视频控制器接受到V-sync才会将帧缓冲器中的位图更新为下一帧，这样保证每次显示的都是同一帧的画面，避免屏幕撕裂。</p>
+<p>双缓冲器机制会增加一个备用缓冲器(back buffer)，渲染结果会原先保存在 <code>back buffer</code> 中，当视频控制器接受到 <code>V-sync</code> 时，会将 <code>back buffer</code> 中的内容置换到 <code>frame buffer</code> 中，此时就能保证置换操作几乎在一瞬间完成，置换操作实际上是交换了 <code>back buffer</code> 与 <code>frame buffer</code> 的内存地址。</p>
+<h2 id="掉帧-Jank"><a href="#掉帧-Jank" class="headerlink" title="掉帧 Jank"></a><font color="#1E90FF">掉帧 Jank</font></h2><p>垂直同步信号 + 双缓冲机制能够解决屏幕撕裂的问题，但是会引入新的问题：掉帧。</p>
+<p>如果在接受到 <code>V-sync</code> 时，CPU与GPU还没有渲染好新的位图，视频控制器就不会去置换 <code>frame buffer</code> 中的位图，这时屏幕就会重新扫描呈现出上一帧的画面，相当于两个周期显示了同样的画面，这就是掉帧。</p>
+<p>三缓冲 <code>Triple Buffering</code></p>
+<p>利用CPU与GPU闲置时间进行下一步渲染，并将渲染结果暂存新增的缓冲器中，达到减少掉帧的次数。</p>
+<p>1、CPU 和 GPU 渲染耗时过长，在垂直同步信号 Vsync到来时计算还未完成，导致掉帧；</p>
+<p>2、V-sync与双缓存的意义：强制同步屏幕刷新，以掉帧为代价解决屏幕撕裂的问题；</p>
+<p>3、三缓冲的意义：合理使用CUP、GPU渲染性能，减少掉帧次数。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.freelibrary.top">大唐盛世</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.freelibrary.top/posts/a6d18922.html">https://www.freelibrary.top/posts/a6d18922.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.freelibrary.top" target="_blank">辰沙资源</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/iOS/">iOS</a></div><div class="post_share"></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/payQR/wechat.png" target="_blank"><img class="post-qr-code-img" src="/images/payQR/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/images/payQR/alipay.png" target="_blank"><img class="post-qr-code-img" src="/images/payQR/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/594a2f27.html" title="layoutSubviews、layoutIfNeeded、setNeedsLayout区别"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">layoutSubviews、layoutIfNeeded、setNeedsLayout区别</div></div></a></div><div class="next-post pull-right"><a href="/posts/e32dbe82.html" title="财富思维提升认知训练营大全集"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">财富思维提升认知训练营大全集</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/aae2988.html" title="UIView与CALayer"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-05</div><div class="title">UIView与CALayer</div></div></a></div><div><a href="/posts/a023856c.html" title="UIViewController生命周期"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-04</div><div class="title">UIViewController生命周期</div></div></a></div><div><a href="/posts/59c46129.html" title="离屏渲染"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-03</div><div class="title">离屏渲染</div></div></a></div><div><a href="/posts/346aa2fd.html" title="事件响应链和传递链"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-02</div><div class="title">事件响应链和传递链</div></div></a></div><div><a href="/posts/f75d2c59.html" title="渲染框架"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-01</div><div class="title">渲染框架</div></div></a></div><div><a href="/posts/594a2f27.html" title="layoutSubviews、layoutIfNeeded、setNeedsLayout区别"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-04</div><div class="title">layoutSubviews、layoutIfNeeded、setNeedsLayout区别</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/head.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">大唐盛世</div><div class="author-info__description">要么努力到出类拔萃，要么懒到乐知天命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">380</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/i-stack"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/i-stack" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shoubing.stack@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/images/connectionQR/wechat.jpeg" target="_blank" title="微信"><i class="fab fa-weixin"></i></a><a class="social-icon" href="/images/connectionQR/qq.jpeg" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-Central-Processing-Unit"><span class="toc-number">1.</span> <span class="toc-text">CPU(Central Processing Unit)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU-Graphics-Processing-Unit"><span class="toc-number">2.</span> <span class="toc-text">GPU(Graphics Processing Unit)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text">图像渲染流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%EF%BC%9AApplication-%E5%BA%94%E7%94%A8%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-number">3.1.</span> <span class="toc-text">第一阶段：Application 应用处理阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5%EF%BC%9AGeometry-%E5%87%A0%E4%BD%95%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-number">3.2.</span> <span class="toc-text">第二阶段：Geometry 几何处理阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5%EF%BC%9ARasterization%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-number">3.3.</span> <span class="toc-text">第三阶段：Rasterization光栅化阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5%EF%BC%9APixel-%E5%83%8F%E7%B4%A0%E5%A4%84%E7%90%86%E9%98%B6%E6%AE%B5"><span class="toc-number">3.4.</span> <span class="toc-text">第四阶段：Pixel 像素处理阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E6%88%90%E5%83%8F"><span class="toc-number">4.</span> <span class="toc-text">屏幕成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E6%92%95%E8%A3%82-Screen-Tearing"><span class="toc-number">5.</span> <span class="toc-text">屏幕撕裂 Screen Tearing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%90%8C%E6%AD%A5%E4%BF%A1%E5%8F%B7-V-sync-%E5%8F%8C%E7%BC%93%E5%86%B2%E6%9C%BA%E5%88%B6-Double-Buffering"><span class="toc-number">6.</span> <span class="toc-text">垂直同步信号 V-sync + 双缓冲机制 Double Buffering</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%89%E5%B8%A7-Jank"><span class="toc-number">7.</span> <span class="toc-text">掉帧 Jank</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/e214a423.html" title="每日一句"><img src="https://staticedu-wps.cache.iciba.com/image/5d786d9265a8ab5afd6756a5644c52e4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日一句"/></a><div class="content"><a class="title" href="/posts/e214a423.html" title="每日一句">每日一句</a><time datetime="2023-04-20T09:38:26.900Z" title="更新于 2023-04-20 17:38:26">2023-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/40d1c17b.html" title="知乎热榜"><img src="https://xqimg.imedao.com/16c28a68fce4b3fe04e766f7.png!800.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知乎热榜"/></a><div class="content"><a class="title" href="/posts/40d1c17b.html" title="知乎热榜">知乎热榜</a><time datetime="2023-04-20T08:56:31.632Z" title="更新于 2023-04-20 16:56:31">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6433b6be.html" title="贴吧热议">贴吧热议</a><time datetime="2023-04-20T08:56:31.330Z" title="更新于 2023-04-20 16:56:31">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/33f2a7a8.html" title="百度热搜">百度热搜</a><time datetime="2023-04-20T08:56:31.070Z" title="更新于 2023-04-20 16:56:31">2023-04-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/8539796a.html" title="微博热搜">微博热搜</a><time datetime="2023-04-20T08:56:30.841Z" title="更新于 2023-04-20 16:56:30">2023-04-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/bg_image.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 大唐盛世</div><div class="framework-info"><a target="_blank" rel="noopener external nofollow noreferrer" href="https://beian.miit.gov.cn">豫ICP备2022028466号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

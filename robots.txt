@@ -1,0 +1,8 @@
+# robots.txt generated at http://tool.chinaz.com/robots/ 
+User-agent: *
+Disallow: 
+Disallow: /bin/
+Sitemap: www.freelibrary.top/baidu.txt
+Sitemap: www.freelibrary.top/google.txt
+Sitemap: www.freelibrary.top/baidu_urls.txt
+Sitemap: www.freelibrary.top/googlesitemap.xml

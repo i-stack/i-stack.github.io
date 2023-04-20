@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="./static/js/query.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body>
+    <div class="hd">
+        <h1 style="text-align: center">IP信息查询</h1>
+    </div>
+
+    <div class="bd">
+        <div class="search" >
+            <input type="text" id="inputBox" placeholder="请输入要查询的IP地址，不输入则查询当前IP信息" >
+            <button onclick="query()">查询</button>
+        </div>
+    </div>
+
+    <div class="search">
+        <table id="result" class="center" hidden="true">
+            <thead>
+                <tr>
+                    <th colspan="2" class="center">
+                        <p>查询结果</p>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><p>访问者的ip地址</p></td>
+                    <td id="ip"><p></p></td>
+                </tr>
+                <tr>
+                    <td><p>描述信息</p></td>
+                    <td id="desc"><p></p></td>
+                </tr>
+                <tr>
+                    <td><p>网络服务商名称</p></td>
+                    <td id="isp"><p></p></td>
+                </tr>
+                <tr>
+                    <td><p>省份id</p></td>
+                    <td id="provinceId"><p></p></td>
+                </tr>
+                <tr>
+                    <td><p>城市id</p></td>
+                    <td id="cityId"><p></p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+	<script>
+        function display(data) {
+            document.getElementById("result").hidden = false
+            document.getElementById("ip").getElementsByTagName("p")[0].innerHTML = data.ip;
+            document.getElementById("desc").getElementsByTagName("p")[0].innerHTML = data.desc;
+            document.getElementById("isp").getElementsByTagName("p")[0].innerHTML = data.isp;
+            document.getElementById("provinceId").getElementsByTagName("p")[0].innerHTML = data.provinceId;
+            document.getElementById("cityId").getElementsByTagName("p")[0].innerHTML = data.cityId;
+        }
+
+		function query() {
+			var inputBox = document.getElementById("inputBox");
+            var queryContent = inputBox.value;
+            queryIP(queryContent, display)
+        }
+	</script>
+</body>
+</html>
