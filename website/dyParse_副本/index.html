@@ -10,9 +10,10 @@
     <title>最新抖音在线无水印解析下载工具</title>
 
     <!-- Scripts -->
-    <script src="https://freelibrary.top/website/static/js/query.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script src="https://freelibrary.top/website/static/js/query.js"></script>
+    <script src="https://freelibrary.top/website/static/js/promotionPlatform.js"></script>
+    
     <!-- Fonts -->
 
     <!-- Styles -->
@@ -73,12 +74,16 @@
                         <span><strong>ouo工具提醒：网络交友，谈钱必谨慎。如遇诈骗，请立即报警！</strong></span>
                     </div>
                     <hr> -->
-                    <div>
+                    <!-- <div>
                         <span><a class="red" href="https://freelibrary.top/posts/32631bce.html" target="_blank">自媒体涨粉平台</a></span> |
                         <span><a href="https://freelibrary.top/posts/481424ab.html" target="_blank">信用卡推广平台</a></span> |
                         <span><a class="red" href="https://freelibrary.top/posts/32631bce.html" target="_blank">全网项目资源整合平台</a></span> |
                         <span><a href="https://freelibrary.top/posts/c0554505.html" target="_blank">百度网盘「官方」超低价SVIP会员</a></span>
-                    </div>
+                    </div> -->
+
+                    <!-- 需要展示代码的位置 -->
+                    <div id="code-container"></div>
+
                     <hr>
                 </div>
 
@@ -173,6 +178,9 @@
                     function utoa(str) {
                         return window.btoa(unescape(encodeURIComponent(str)));
                     }
+
+                    let codeHTML = promotionPlatform.displayPromotionPlatformCodes();
+                    document.getElementById("code-container").innerHTML = codeHTML;
                 </script>            
                 
                 <!-- <br>
