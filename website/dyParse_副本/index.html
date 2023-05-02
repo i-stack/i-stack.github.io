@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="IvdvNwCCj10fTxCFp8ZwHvBxZhN6PoPkaAT5OLB7">
+
+    <title>最新抖音在线无水印解析下载工具</title>
+
+    <!-- Scripts -->
+    <script src="https://freelibrary.top/website/static/js/query.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Fonts -->
+
+    <!-- Styles -->
+    <link href="https://freelibrary.top/website/static/css/app.css" rel="stylesheet">
+    <link href="https://freelibrary.top/website/static/css/common.css" rel="stylesheet">
+
+    <meta name="keywords" content="抖音,抖音短视频,无水印,抖音无水印,ouotool,ouo工具,tiktok,download,watermark">
+    <meta name="description" content="抖音无水印视频下载工具,最新抖音在线水印视频解析网站,抖音图文无水印下载,Tiktok video download without watermark">
+    <meta name="referrer" content="never">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HEDDW9N0M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0HEDDW9N0M');
+    </script>
+</head>
+<body>
+    <div id="app" style="margin-bottom: -320px;">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <a class="navbar-brand" href="https://freelibrary.top">辰沙资源工具</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto"></ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            <div style="text-align: center;padding: 20px;" class="hidden"></div>
+            <div class="container">
+                <!-- <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">公告板</div>
+
+                            <div class="card-body">
+                                
+                                抖音视频/图集 去水印/无水印 下载工具<br>
+                                <span class="red">(本工具仅供个人使用，严禁使用本工具再进行二次上传！)</span>
+                                    
+                            </div>
+                        </div>
+                        <br>
+                    <div>
+                    <span class="red"></span>
+                </div> -->
+
+                <div style="text-align: center;">
+                    <!-- <div>
+                        <span><strong>ouo工具提醒：网络交友，谈钱必谨慎。如遇诈骗，请立即报警！</strong></span>
+                    </div>
+                    <hr> -->
+                    <div>
+                        <span><a class="red" href="https://freelibrary.top/posts/32631bce.html" target="_blank">自媒体涨粉平台</a></span> |
+                        <span><a href="https://freelibrary.top/posts/481424ab.html" target="_blank">信用卡推广平台</a></span> |
+                        <span><a class="red" href="https://freelibrary.top/posts/32631bce.html" target="_blank">全网项目资源整合平台</a></span> |
+                        <span><a href="https://freelibrary.top/posts/c0554505.html" target="_blank">百度网盘「官方」超低价SVIP会员</a></span>
+                    </div>
+                    <hr>
+                </div>
+
+                <div style="text-align: center;"></div>
+                <br>
+            
+                <div class="card">
+                    <div class="card-header">抖音</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label class="col-form-label">抖音分享链接内容:</label>
+                            <input id="inputBox" class="form-control" maxlength="200" placeholder="直接粘贴从抖音复制的内容"  value=""/>
+                        </div>
+                        <div class="float-sm-right">
+                            <button id="search" class="btn btn-primary" onclick="query()">解析</button>
+                        </div>
+                    </div>
+                    <!-- <div class="card-body">
+                        <div style="padding-bottom: 10px;">
+                            <small>例如：#在抖音，记录美好生活##广州萤火虫动漫展 可以说是阿丽塔原作漫画版的真人现场了@六二二同学 http://v.douyin.com/uycNy6/ 复制此链接，打开【抖音短视频】，直接观看视频！</small>
+                        </div>
+                        <div>
+                            <div class="text-xl-center"> <span>https://ouotool.com/dy</span></div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="card" id="results" hidden="true">
+                    <div class="card-header">解析结果</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div id="dyplayurl" class="result">
+                                <pre class="pre"></pre>
+                                <a id="play_url" class="btn-success" target="_blank" href="" rel="noopener noreferrer" download="">下载视频</a>
+                            </div>
+                            <br>
+                            <div id="dycover" class="result">
+                                <pre class="pre"></pre>
+                                <a id="cover_url" class="btn-success" target="_blank" href="" rel="noopener noreferrer" download="">下载封面</a>
+                            </div>
+                            <!-- <div id="results" hidden="true">
+                                <div id="dyplayurl" class="result">
+                                    <pre class="pre"></pre>
+                                    <a id="play_url" class="btn-success" target="_blank" href="" rel="noopener noreferrer" download="">下载视频</a>
+                                </div>
+                                <br>
+                                <div id="dycover" class="result">
+                                    <pre class="pre"></pre>
+                                    <a id="cover_url" class="btn-success" target="_blank" href="" rel="noopener noreferrer" download="">下载封面</a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- <div id="results" hidden="true">
+                        <h3 class="bold">解析结果：</h3>
+                        <div id="dyplayurl" class="result">
+                            <pre class="pre"></pre>
+                            <a id="play_url" class="btn-success" target="_blank" href="" rel="noopener noreferrer" download="">下载视频</a>
+                        </div>
+                    
+                        <div id="dycover" class="result">
+                            <pre class="pre"></pre>
+                            <a id="cover_url" class="btn-success" target="_blank" href="" rel="noopener noreferrer" download="">下载封面</a>
+                        </div>
+                    </div> -->
+
+                </div>   
+
+                <script>
+                    function display(data) {
+                        document.getElementById("results").hidden = false;
+                        var preElement = document.getElementById("dyplayurl").getElementsByTagName("pre")[0];
+                        preElement.innerHTML = data.url; 
+                        var playUrlElement = document.getElementById("play_url");
+                        playUrlElement.href = data.url; 
+                        playUrlElement.download = data.url; 
+            
+                        preElement = document.getElementById("dycover").getElementsByTagName("pre")[0];
+                        preElement.innerHTML = data.cover;  
+                        playUrlElement = document.getElementById("cover_url");
+                        playUrlElement.href = data.cover;  
+                        playUrlElement.download = data.cover;   
+                    }
+            
+                    function query() {
+                        var inputBox = document.getElementById("inputBox");
+                        var queryContent = inputBox.value;
+                        queryDyVideo(utoa(queryContent), display)
+                    }
+            
+                    function utoa(str) {
+                        return window.btoa(unescape(encodeURIComponent(str)));
+                    }
+                </script>            
+                
+                <!-- <br>
+                <div class="card" style="background-color: #fff0;">
+                    <div class="card-header">其他工具</div>
+                    <div class="card-body">
+                        <li class="col-md-8 col-center" style="float:left;">
+                            <a href="/tb">【贴吧】贴吧用户查询</a>
+                            
+                            <a href="https://tieba.cloud/" target="_blank" class="red">【贴吧】贴吧ID账号</a>
+                            
+                            <br>
+                            <a href="http://chengqing.cc/" target="_blank">【澄清·贴吧】清理粉丝/取消关注/删除主题/删除回复</a>
+                            <br>
+                            <a href="/pic" class="red">【搜图】搜图工具</a>
+                            
+                            <br>
+                            <a href="/163">【网易云】网易云音乐用户查询</a>
+                            <a href="/163/sharelink" class="">【网易云】网易云分享链接解析用户ID</a>
+                            <br>
+                            
+                            <a href="/qq/direct" class="">【QQ】查询QQ号资料和对话</a>
+                            <br>
+                            <a href="/dy" class="">【抖音】抖音 无水印 解析下载</a>
+                            
+                            <br>
+                            <a href="/xg">【西瓜视频】西瓜 无水印 解析下载</a>
+                            <br>
+                            <a href="/wb/oasis">【绿洲】绿洲图片视频无水印解析下载</a>
+                            
+                            <br>
+                            <a href="/raw-download" class="red">【链接】视频链接转视频文件下载（适用于微博国际版视频下载）</a>
+                            <br>
+                            <a href="/b" class="">【B站】哔哩哔哩视频下载</a>
+                            <br>
+                            <a href="/set-clock">【时钟】在线时钟（设置）</a>
+                            <a href="/clock" target="_blank">【时钟】在线时钟</a>
+                            <br>
+                            <a href="/waimai" class="red">【外卖】每日外卖优惠券红包领取</a>
+                            <br>
+                            <a href="/">【全部】其他工具</a>
+                            <br>
+                
+                            更多功能，敬请期待。
+                
+                            <small>*所有数据均为互联网公开数据</small>
+                        </li>
+                    </div>
+                </div>
+                <br>
+                <div class="card" style="background-color: #fff0;">
+                    <div class="card-header">联系</div>
+                    <div class="card-body">
+                        <li class="col-md-8 col-center" style="float:left;">
+                            <span>QQ群：<span>344515727</span></span>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div> -->
+</body>
+</html>
