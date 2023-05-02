@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://freelibrary.top/website/static/js/query.js"></script>
     <script src="https://freelibrary.top/website/static/js/promotionPlatform.js"></script>
-    
+
     <!-- Fonts -->
 
     <!-- Styles -->
@@ -179,8 +179,7 @@
                         return window.btoa(unescape(encodeURIComponent(str)));
                     }
 
-                    let codeHTML = promotionPlatform.displayPromotionPlatformCodes();
-                    document.getElementById("code-container").innerHTML = codeHTML;
+                    document.getElementById("code-container").innerHTML = freelibraryCodeDisplay();
                 </script>            
                 
                 <!-- <br>

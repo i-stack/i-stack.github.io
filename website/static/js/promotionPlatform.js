@@ -1,4 +1,4 @@
-function displayPromotionPlatformCodes() {
+function displayFreelibraryCodes() {
     let codeHTML = `
       <div>
         <span><a class="red" href="https://freelibrary.top/posts/32631bce.html" target="_blank">自媒体涨粉平台</a></span> |
@@ -10,6 +10,4 @@ function displayPromotionPlatformCodes() {
     return codeHTML;
 }
   
-export default {
-    displayPromotionPlatformCodes
-};
+window.freelibraryCodeDisplay = displayFreelibraryCodes;
