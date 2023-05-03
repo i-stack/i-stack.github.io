@@ -1,64 +1,133 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="./static/css/style.css">
-    <script src="./static/js/query.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-</head>
+<html lang="zh">
+    <head>
+        <title>手机归属地查询</title>
 
-<body>
-    <div class="hd">
-        <h1 style="text-align: center">手机归属地查询</h1>
-    </div>
+        <meta charset="utf-8">
+        <meta name="keywords" content="手机归属地查询">
+        <meta name="description" content="手机归属地查询">
+        <meta name="referrer" content="never">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="bd">
-        <div class="search" >
-            <input type="text" id="inputBox" placeholder="请输入11位手机号" >
-            <button onclick="query()">查询</button>
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://freelibrary.top/website/static/js/query.js"></script>
+        <script src="https://freelibrary.top/website/static/js/promotionPlatform.js"></script>
+
+        <!-- Styles -->
+        <link href="https://freelibrary.top/website/static/css/app.css" rel="stylesheet">
+        <link href="https://freelibrary.top/website/static/css/table.css" rel="stylesheet">
+        <link href="https://freelibrary.top/website/static/css/common.css" rel="stylesheet">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ES7NKG12N1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ES7NKG12N1');
+        </script>
+    </head>
+
+    <body>
+        <div id="app" style="margin-bottom: -320px;">
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+                <div class="container">
+                    <a class="navbar-brand" href="https://freelibrary.top">辰沙资源工具</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto"></ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="py-4">
+                <div style="text-align: center;padding: 20px;" class="hidden"></div>
+                <div class="container">
+                    <div style="text-align: center;">
+                        <div id="code-container"></div>
+                        <hr>
+                    </div>
+
+                    <div style="text-align: center;"></div>
+                    <br>
+                
+                    <div class="card">
+                        <div class="card-header">手机归属地查询</div>
+                        <div class="card-body">
+                            <div class="form-group">                            
+                                <input id="inputBox" class="form-control" maxlength="200" placeholder="请输入11位手机号"  value=""/>
+                            </div>
+                            <div class="float-sm-right">
+                                <button id="search" class="btn btn-primary" onclick="query()">查询</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                    <div class="card" id="results" hidden="true">
+                        <table class="center">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="center">
+                                        <p class="center">查询结果</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p class="center">查询的手机号码</p></td>
+                                    <td id="mobile"><p class="center"></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="center">归属地省份</p></td>
+                                    <td id="province"><p class="center"></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="center">运营商</p></td>
+                                    <td id="carrier"><p class="center"></p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <script>
+                        function display(data) {
+                            document.getElementById("results").hidden = false
+                            document.getElementById("mobile").getElementsByTagName("p")[0].innerHTML = data.mobile;
+                            document.getElementById("province").getElementsByTagName("p")[0].innerHTML = data.province;
+                            document.getElementById("carrier").getElementsByTagName("p")[0].innerHTML = data.carrier;
+                        }
+                
+                        function query() {
+                            var inputBox = document.getElementById("inputBox");
+                            var queryContent = inputBox.value;
+                            queryMobileUrl(queryContent, display)
+                        }
+                    </script>
+
+                    <script>
+                        document.getElementById("code-container").innerHTML = window.freelibraryCodeDisplay();
+                    </script>
+                    
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2806990260680858"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-2806990260680858"
+                        data-ad-slot="8588925474"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true">
+                    </ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </main>
         </div>
-    </div>
-
-    <div class="search">
-        <table id="result" class="center" hidden="true">
-            <thead>
-                <tr>
-                    <th colspan="2" class="center">
-                        <p>查询结果</p>
-                    </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td><p>查询的手机号码</p></td>
-                    <td id="mobile"><p></p></td>
-                </tr>
-                <tr>
-                    <td><p>归属地省份</p></td>
-                    <td id="province"><p></p></td>
-                </tr>
-                <tr>
-                    <td><p>运营商</p></td>
-                    <td id="carrier"><p></p></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-	<script>
-        function display(data) {
-            document.getElementById("result").hidden = false
-            document.getElementById("mobile").getElementsByTagName("p")[0].innerHTML = data.mobile;
-            document.getElementById("province").getElementsByTagName("p")[0].innerHTML = data.province;
-            document.getElementById("carrier").getElementsByTagName("p")[0].innerHTML = data.carrier;
-        }
-
-		function query() {
-			var inputBox = document.getElementById("inputBox");
-            var queryContent = inputBox.value;
-            queryMobileUrl(queryContent, display)
-        }
-	</script>
-</body>
+    </body>
 </html>
