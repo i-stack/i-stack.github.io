@@ -1,4 +1,4 @@
-function displayFreelibraryCodes() {
+function freelibraryCodeDisplay() {
     let codeHTML = `
       <div>
         <span><a class="red" href="https://freelibrary.top/posts/32631bce.html" target="_blank">自媒体涨粉平台</a></span> |
@@ -10,4 +10,4 @@ function displayFreelibraryCodes() {
     return codeHTML;
 }
   
-window.freelibraryCodeDisplay = displayFreelibraryCodes;
+window.freelibraryCodeDisplay = freelibraryCodeDisplay;
