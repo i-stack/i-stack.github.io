@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <title>IP信息查询</title>
+
+        <meta charset="utf-8">
+        <meta name="keywords" content="IP信息查询">
+        <meta name="description" content="IP信息查询">
+        <meta name="referrer" content="never">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://freelibrary.top/website/static/js/query.js"></script>
+        <script src="https://freelibrary.top/website/static/js/promotionPlatform.js"></script>
+
+        <!-- Styles -->
+        <link href="https://freelibrary.top/website/static/css/app.css" rel="stylesheet">
+        <link href="https://freelibrary.top/website/static/css/table.css" rel="stylesheet">
+        <link href="https://freelibrary.top/website/static/css/common.css" rel="stylesheet">
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DKBFX4W3Y"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-7DKBFX4W3Y');
+        </script>
+    </head>
+
+    <body>
+        <div id="app" style="margin-bottom: -320px;">
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+                <div class="container">
+                    <h1><a class="navbar-brand" href="https://freelibrary.top">辰沙资源工具</a></h1>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto"></ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="py-4">
+                <div style="text-align: center;padding: 20px;" class="hidden"></div>
+                <div class="container">
+                    <div style="text-align: center;">
+                        <div id="code-container"></div>
+                        <hr>
+                    </div>
+
+                    <div style="text-align: center;"></div>
+                    <br>
+                
+                    <div class="card">
+                        <div class="card-header">IP信息查询</div>
+                        <div class="card-body">
+                            <div class="form-group">                            
+                                <input id="inputBox" class="form-control" maxlength="200" placeholder="请输入要查询的IP地址，不输入则查询当前IP信息"  value=""/>
+                            </div>
+                            <div class="float-sm-right">
+                                <button id="search" class="btn btn-primary" onclick="query()">查询</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center;">
+                    <div class="card" id="results" hidden="true">
+                        <table class="center">
+                            <thead>
+                                <tr>
+                                    <th colspan="2" class="center">
+                                        <p class="center">查询结果</p>
+                                    </th>
+                                </tr>
+                            </thead>
+                
+                            <tbody>
+                                <tr>
+                                    <td><p class="center">访问者的ip地址</p></td>
+                                    <td id="ip"><p class="center"></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="center">描述信息</p></td>
+                                    <td id="desc"><p class="center"></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="center">网络服务商名称</p></td>
+                                    <td id="isp"><p class="center"></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="center">省份id</p class="center"></td>
+                                    <td id="provinceId"><p class="center"></p></td>
+                                </tr>
+                                <tr>
+                                    <td><p class="center">城市id</p></td>
+                                    <td id="cityId"><p class="center"></p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <script>
+                        function display(data) {
+                            document.getElementById("results").hidden = false
+                            document.getElementById("ip").getElementsByTagName("p")[0].innerHTML = data.ip;
+                            document.getElementById("desc").getElementsByTagName("p")[0].innerHTML = data.desc;
+                            document.getElementById("isp").getElementsByTagName("p")[0].innerHTML = data.isp;
+                            document.getElementById("provinceId").getElementsByTagName("p")[0].innerHTML = data.provinceId;
+                            document.getElementById("cityId").getElementsByTagName("p")[0].innerHTML = data.cityId;
+                        }
+
+                        function query() {
+                            var inputBox = document.getElementById("inputBox");
+                            var queryContent = inputBox.value;
+                            queryIP(queryContent, display)
+                        }
+                    </script>
+
+                    <script>
+                        document.getElementById("code-container").innerHTML = window.freelibraryCodeDisplay();
+                    </script>
+                    
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2806990260680858"
+                    crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-2806990260680858"
+                        data-ad-slot="8588925474"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true">
+                    </ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
