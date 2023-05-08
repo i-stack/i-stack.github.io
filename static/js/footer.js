@@ -1,10 +1,7 @@
 // 动态心跳，更改自己的名称
-jQuery(function() {
-    $('.copyright').html(`
-	©2022 <i class="fa-fw fas fa-heartbeat card-announcement-animation cc_pointer"></i> By 大唐盛世
-	<br>
-	<a href="https://beian.miit.gov.cn")>豫ICP备2022028466号</a>`);
-})
+// jQuery(function() {
+//     $('.copyright').html('©2022 <i class="fa-fw fas fa-heartbeat card-announcement-animation cc_pointer"></i> By 大唐盛世<br><a href="https://beian.miit.gov.cn">豫ICP备2022028466号</a>');
+// })
 
 jQuery(function() {
     show_date_time();

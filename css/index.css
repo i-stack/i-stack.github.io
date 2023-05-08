@@ -3129,17 +3129,17 @@ h1.page-title + .tag-cloud-list {
   text-decoration: none;
 }
 .cal-head {
+  margin-bottom: 15px;
   position: relative;
   height: 20px;
   padding: 8px 6px 2px 6px;
-  margin-bottom: 15px;
 }
 .cal-prev,
 .cal-next {
   position: absolute;
   top: 9px;
-  width: 9px;
-  height: 10px;
+  width: 16px;
+  height: 18px;
   padding: 3px 4px;
   border: 1px solid transparent;
   color: #333;
@@ -3167,7 +3167,7 @@ h1.page-title + .tag-cloud-list {
   border-bottom: 5px solid transparent;
 }
 .cal-title {
-  width: 120px;
+  width: 100px;
   margin: 0 auto;
   color: #333;
   font: bold 14px/18px Arial;
@@ -3175,38 +3175,46 @@ h1.page-title + .tag-cloud-list {
 }
 .cal-title a {
   border: 1px solid transparent;
-  color: #f76b61;
+  color: #9f9f9f;
 }
 .cal,
 .cal th,
 .cal td {
-  border: none;
+  border: 1px solid #d1d1d1;
 }
 .cal {
-  border-collapse: collapse;
+  display: table;
+  border-collapse: separate;
   border-spacing: 0;
+  border-width: 1px 0 0 1px;
   table-layout: fixed;
   width: 100%;
   margin: 0;
 }
 .cal th {
-  background: rgba(0,0,0,0);
-  color: #000;
-  font-weight: 900 !important;
+  background: #9f9f9f;
+  color: #fff;
+  border-width: 0 1px 1px 0;
+  font-weight: 700;
+}
+.cal td {
+  border-width: 0 1px 1px 0;
 }
 .cal tbody a {
-  background-color: #f76b61;
+  background-color: #007acc;
   color: #fff;
   display: block;
   font-weight: 700;
-  border: 1px solid #fff;
 }
 .cal tbody .cal-today {
-  background-color: #ffdfdd;
-  color: #f76b61;
+  background-color: #66ecfd;
+  color: #fff;
 }
 .cal .cal-gray {
-  color: #ddd;
+  color: #bbb8b8;
+}
+[data-theme='dark'] .cal .cal-gray {
+  color: #505050;
 }
 .cal th,
 .cal td {
@@ -3215,19 +3223,20 @@ h1.page-title + .tag-cloud-list {
   padding: 0;
   text-align: center;
 }
+[data-theme='dark'] .cal .cal-foot {
+  color: #9f9f9f;
+}
+.cal .cal-foot {
+  color: #2ca6cb;
+}
 .cal-title a:hover,
 .cal-prev:hover,
 .cal-next:hover,
 .cal .cal-foot:hover,
-.cal .cal-foot:focus {
-  cursor: pointer;
-  background-color: transparent;
-  cursor: pointer;
-  color: #42d3d8;
-}
+.cal .cal-foot:focus,
 .cal tbody a:hover,
 .cal tbody a:focus {
-  background-color: #ffdfdd;
+  background-color: #686868;
   color: #fff;
   cursor: pointer;
 }

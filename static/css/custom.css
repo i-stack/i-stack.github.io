@@ -57,6 +57,10 @@
 	background: transparent;
 } 
 
+#page-header.not-home-page.fixed {
+  background: transparent;
+}
+
 #footer {
     background: transparent;
 }
