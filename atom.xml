@@ -6,7 +6,7 @@
   <link href="https://www.freelibrary.top/atom.xml" rel="self"/>
   
   <link href="https://www.freelibrary.top/"/>
-  <updated>2023-05-05T14:55:02.927Z</updated>
+  <updated>2023-05-08T00:09:12.870Z</updated>
   <id>https://www.freelibrary.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-Butterfly实用技巧</title>
+    <link href="https://www.freelibrary.top/posts/1828813469.html"/>
+    <id>https://www.freelibrary.top/posts/1828813469.html</id>
+    <published>2023-05-07T01:42:49.000Z</published>
+    <updated>2023-05-08T00:09:12.870Z</updated>
+    
+    
+    <summary type="html">Hexo-Butterfly实用技巧，开发过程遇到的不同需求对应的解决方案</summary>
+    
+    
+    
+    <category term="技术教程" scheme="https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Hexo" scheme="https://www.freelibrary.top/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>漫画拉新</title>
@@ -61,30 +80,11 @@
   </entry>
   
   <entry>
-    <title>Hexo-Butterfly音乐播放器</title>
-    <link href="https://www.freelibrary.top/posts/423811715.html"/>
-    <id>https://www.freelibrary.top/posts/423811715.html</id>
-    <published>2023-04-11T08:44:50.000Z</published>
-    <updated>2023-05-05T14:55:02.750Z</updated>
-    
-    
-    <summary type="html">Hexo音乐播放器搭建教程</summary>
-    
-    
-    
-    <category term="技术教程" scheme="https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Hexo" scheme="https://www.freelibrary.top/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>每日一句</title>
     <link href="https://www.freelibrary.top/posts/e214a423.html"/>
     <id>https://www.freelibrary.top/posts/e214a423.html</id>
     <published>2023-03-31T16:10:23.000Z</published>
-    <updated>2023-05-06T13:44:24.793Z</updated>
+    <updated>2023-05-08T11:03:28.182Z</updated>
     
     
     <summary type="html">每日一句补充正能量</summary>
@@ -95,31 +95,6 @@
     
     
     <category term="笔记" scheme="https://www.freelibrary.top/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo全局变量设置</title>
-    <link href="https://www.freelibrary.top/posts/658f08ba.html"/>
-    <id>https://www.freelibrary.top/posts/658f08ba.html</id>
-    <published>2023-03-27T09:46:28.000Z</published>
-    <updated>2023-05-05T14:55:02.761Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="技术教程" scheme="https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Hexo" scheme="https://www.freelibrary.top/tags/Hexo/"/>
     
   </entry>
   
@@ -176,25 +151,6 @@
     
     
     <summary type="html">AI人工智能2.0,每个人的人工智能课,从现在开始学习AI拥抱未来、拥抱AI</summary>
-    
-    
-    
-    <category term="课程资源" scheme="https://www.freelibrary.top/categories/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/"/>
-    
-    
-    <category term="课程" scheme="https://www.freelibrary.top/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>本地生活运营师完整课程</title>
-    <link href="https://www.freelibrary.top/posts/7bfcc969.html"/>
-    <id>https://www.freelibrary.top/posts/7bfcc969.html</id>
-    <published>2023-03-15T03:50:06.000Z</published>
-    <updated>2023-05-05T14:55:02.925Z</updated>
-    
-    
-    <summary type="html">本地生活运营师完整课程</summary>
     
     
     
@@ -363,31 +319,6 @@
   </entry>
   
   <entry>
-    <title>如何在Hexo页面中插入网页</title>
-    <link href="https://www.freelibrary.top/posts/932dcc61.html"/>
-    <id>https://www.freelibrary.top/posts/932dcc61.html</id>
-    <published>2023-02-25T15:00:14.000Z</published>
-    <updated>2023-05-05T14:55:02.761Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="技术教程" scheme="https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Hexo" scheme="https://www.freelibrary.top/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>全网影视会员</title>
     <link href="https://www.freelibrary.top/posts/2948918a.html"/>
     <id>https://www.freelibrary.top/posts/2948918a.html</id>
@@ -440,6 +371,75 @@
     
     
     <summary type="html">互联网优质项目资源平台诚招创业合伙人</summary>
+    
+    
+    
+    <category term="项目资源" scheme="https://www.freelibrary.top/categories/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="创业项目" scheme="https://www.freelibrary.top/tags/%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件快递柜系统源码</title>
+    <link href="https://www.freelibrary.top/posts/e1ef96e9.html"/>
+    <id>https://www.freelibrary.top/posts/e1ef96e9.html</id>
+    <published>2023-02-21T10:58:29.000Z</published>
+    <updated>2023-05-05T14:55:02.930Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="源码资源" scheme="https://www.freelibrary.top/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="源码" scheme="https://www.freelibrary.top/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ChatGPT智能AI机器人微信小程序源码</title>
+    <link href="https://www.freelibrary.top/posts/992b5cd8.html"/>
+    <id>https://www.freelibrary.top/posts/992b5cd8.html</id>
+    <published>2023-02-20T11:05:20.000Z</published>
+    <updated>2023-05-05T14:55:02.930Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="源码资源" scheme="https://www.freelibrary.top/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"/>
+    
+    
+    <category term="源码" scheme="https://www.freelibrary.top/tags/%E6%BA%90%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信用卡推广招募代理</title>
+    <link href="https://www.freelibrary.top/posts/481424ab.html"/>
+    <id>https://www.freelibrary.top/posts/481424ab.html</id>
+    <published>2023-02-19T01:08:50.000Z</published>
+    <updated>2023-05-05T14:55:02.791Z</updated>
+    
+    
+    <summary type="html">用心做的信用卡推广平台网申系统直招代理，佣金秒结算，无任何费用，轻松月入过万，成功从加入开始！</summary>
     
     
     
