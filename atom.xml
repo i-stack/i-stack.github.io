@@ -6,7 +6,7 @@
   <link href="https://www.freelibrary.top/atom.xml" rel="self"/>
   
   <link href="https://www.freelibrary.top/"/>
-  <updated>2023-05-19T16:46:32.992Z</updated>
+  <updated>2023-05-19T16:48:25.641Z</updated>
   <id>https://www.freelibrary.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.freelibrary.top/posts/3334294206.html"/>
     <id>https://www.freelibrary.top/posts/3334294206.html</id>
     <published>2023-05-19T16:30:39.000Z</published>
-    <updated>2023-05-19T16:46:32.992Z</updated>
+    <updated>2023-05-19T16:48:25.641Z</updated>
     
     
       
@@ -36,6 +36,8 @@
     
     <category term="技术教程" scheme="https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
     
+    
+    <category term="域名" scheme="https://www.freelibrary.top/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
