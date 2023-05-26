@@ -34,8 +34,7 @@
 
 /* 文章的整体背景 */
 /* #web_bg {
-	background-image: url("../img/bg_image.jpg"), 
-	linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), 
+	background-image: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), 
 } */
 
 /* 主页所有文章页面背景 */
@@ -46,10 +45,10 @@
 .layout_post>#post,
 .read-mode 
 .layout_post>#post {
-	background: rgba(255, 255, 255, 0.88);
+	background: rgba(255, 255, 255, 0.8);
 }
 
-#page-header.full_page {
+/* #page-header.full_page {
     background: transparent;
 }
 
@@ -59,63 +58,71 @@
 
 #page-header.not-home-page.fixed {
   background: transparent;
-}
+} */
 
-#footer {
+/* #footer {
     background: transparent;
-}
+} */
 
  /* 导航栏 */
- #page-header.nav-fixed #nav {
+ /* #page-header.nav-fixed #nav {
 	background: rgba(255, 255, 255, 0.88);
+} */
+
+#recent-posts {
+  padding-right: 95px;
+}
+
+#aside-content {
+  width: 500px;
+  padding-left: 95px;
 }
 
 /* 白天主题下的配置 */
-#aside-content>.card-widget.card-info {
+/* #aside-content>.card-widget.card-info {
     background-image: url('https://moonshuo.cn/css/bg.jpg');
     background-repeat: no-repeat;
     background-attachment: inherit;
     background-size: 100%;
-}
+} */
 
 /* 黑暗主题下的配置 */
-[data-theme=dark] #aside-content>.card-widget.card-info {
+/* [data-theme=dark] #aside-content>.card-widget.card-info {
     background-image: url('./bbg.png') !important
-}
+} */
 
 #post, #page, #archive {
-	background: rgba(255, 255, 255, 0.88);
-	border: var(--border-style);
-	border-radius: 20px;
-	--border-style: 2px solid rgb(82, 224, 132);
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 8px;
+  /* border: 1px solid rgb(82, 224, 132); */
 }
 
-#aside-content .card-widget {
-	background: rgba(255, 255, 255, 0.88);
-    border-radius: 18px;
-    border: 1px 
+#aside-content.card-widget {
+	background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  border: 1px;
 }
 
 #poem_info {
 	display: flex;
-    color: rgba(60, 60, 67, 0.6);
-    font-size: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  color: rgba(60, 60, 67, 0.6);
+  font-size: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 #poem_dynasty {
 	order: 0;
-    padding: 2px 4px 2px 6px;
-    background: #edf0f7;
-    color: #363636;
-    border-radius: 8px;
+  padding: 2px 4px 2px 6px;
+  background: #edf0f7;
+  color: #363636;
+  border-radius: 8px;
 }
 
 #poem_author {
 	order: 1;
-    padding: 2px;
-    margin-left: 8px;
+  padding: 2px;
+  margin-left: 8px;
 }
 
 #poem_sentence {
