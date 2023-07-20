@@ -1730,6 +1730,13 @@
 
   
   <url>
+    <loc>https://www.freelibrary.top/tags/%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.freelibrary.top/tags/Hexo/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1752,13 +1759,6 @@
   
   <url>
     <loc>https://www.freelibrary.top/tags/%E6%A1%88%E4%BE%8B/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.freelibrary.top/tags/%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1851,6 +1851,13 @@
 
   
   <url>
+    <loc>https://www.freelibrary.top/categories/%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2023-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.freelibrary.top/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1859,13 +1866,6 @@
   
   <url>
     <loc>https://www.freelibrary.top/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/</loc>
-    <lastmod>2023-07-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.freelibrary.top/categories/%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
