@@ -1,5 +1,5 @@
-/* 文章标题居中 */
-#post>#post-info{
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>/* 文章标题居中 */
+#post&gt;#post-info{
   text-align: center
 }
 
@@ -39,12 +39,12 @@
 
 /* 主页所有文章页面背景 */
 #aside_content.card-widget,
-#recent-posts>.recent-post-item,
-.layout_page>div:first-child:not(.recent-posts),
-.layout_post>#page,
-.layout_post>#post,
+#recent-posts&gt;.recent-post-item,
+.layout_page&gt;div:first-child:not(.recent-posts),
+.layout_post&gt;#page,
+.layout_post&gt;#post,
 .read-mode 
-.layout_post>#post {
+.layout_post&gt;#post {
 	background: rgba(255, 255, 255, 0.8);
 }
 
@@ -79,7 +79,7 @@
 }
 
 /* 白天主题下的配置 */
-/* #aside-content>.card-widget.card-info {
+/* #aside-content&gt;.card-widget.card-info {
     background-image: url('https://moonshuo.cn/css/bg.jpg');
     background-repeat: no-repeat;
     background-attachment: inherit;
@@ -87,7 +87,7 @@
 } */
 
 /* 黑暗主题下的配置 */
-/* [data-theme=dark] #aside-content>.card-widget.card-info {
+/* [data-theme=dark] #aside-content&gt;.card-widget.card-info {
     background-image: url('./bbg.png') !important
 } */
 
