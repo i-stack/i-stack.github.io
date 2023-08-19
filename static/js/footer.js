@@ -1,4 +1,4 @@
-// 动态心跳，更改自己的名称
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>// 动态心跳，更改自己的名称
 // jQuery(function() {
 //     $('.copyright').html('©2022 <i class="fa-fw fas fa-heartbeat card-announcement-animation cc_pointer"></i> By 大唐盛世<br><a href="https://beian.miit.gov.cn">豫ICP备2022028466号</a>');
 // })
@@ -24,5 +24,5 @@ function show_date_time() {
 	e_minsold=(e_hrsold-hrsold)*60;
 	minsold=Math.floor((e_hrsold-hrsold)*60);
 	seconds=Math.floor((e_minsold-minsold)*60);
-	span_dt_dt.innerHTML='<font style=color:#afb4db>'+daysold+'</font> 天 <font style=color:#f391a9>'+hrsold+'</font> 时 <font style=color:#fdb933>'+minsold+'</font> 分 <font style=color:#a3cf62>'+seconds+'</font> 秒';
+	span_dt_dt.innerHTML='<font style="color:#afb4db">'+daysold+'</font> 天 <font style="color:#f391a9">'+hrsold+'</font> 时 <font style="color:#fdb933">'+minsold+'</font> 分 <font style="color:#a3cf62">'+seconds+'</font> 秒';
 }
