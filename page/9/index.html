@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>辰沙资源 - www.freelibrary.top</title><meta name="author" content="大唐盛世"><meta name="copyright" content="大唐盛世"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="keywords"><meta name="description" content="要么努力到出类拔萃，要么懒到乐知天命">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>辰沙资源 - www.freelibrary.top</title><meta name="author" content="大唐盛世"><meta name="copyright" content="大唐盛世"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="要么努力到出类拔萃，要么懒到乐知天命">
 <meta property="og:type" content="website">
 <meta property="og:title" content="辰沙资源">
 <meta property="og:url" content="https://www.freelibrary.top/page/9/index.html">
@@ -9,7 +9,7 @@
 <meta property="article:author" content="大唐盛世">
 <meta property="article:tag" content="小程序源码,公众号源码,网站源码,壁纸源码,技术教程,文案分享,读书笔记,知识科普,今日热点,福利分享,优质文案,本地生活">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://data.freelibrary.top/img/head.jpeg"><link rel="shortcut icon" href="https://data.freelibrary.top/img/icon.png"><link rel="canonical" href="https://www.freelibrary.top/page/9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="d7081b62deb4d103aca073589b382ffd"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://data.freelibrary.top/img/head.jpeg"><link rel="shortcut icon" href="https://data.freelibrary.top/img/icon.png"><link rel="canonical" href="https://www.freelibrary.top/page/9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="d7081b62deb4d103aca073589b382ffd"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?d7081b62deb4d103aca073589b382ffd";
@@ -22,7 +22,7 @@
   localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -42,12 +42,10 @@
   },
   copyright: undefined,
   lightbox: 'fancybox',
-  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
-  source: {
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
-    }
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
   },
   isPhotoFigcaption: false,
   islazyload: false,
@@ -63,85 +61,87 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-10-31 23:02:05'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
+  postUpdate: '2023-12-10 15:04:47'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
         }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
 
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
         }
-        return item.value
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
       }
-    }
-  
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
       }
-      document.head.appendChild(script)
-    })
-  
-    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
-      const link = document.createElement('link')
-      link.rel = 'stylesheet'
-      link.href = url
-      if (id) link.id = id
-      link.onerror = reject
-      link.onload = link.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        link.onload = link.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(link)
-    })
-  
-    const detectApple = () => {
-      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><link rel="stylesheet" href="/static/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/static/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="辰沙资源" type="application/atom+xml">
 </head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
@@ -165,23 +165,23 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://data.freelibrary.top/img/head.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-train"></i><span> 项目资源</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-tree"></i><span> 源码分享</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/"><i class="fa-fw fas fa-key"></i><span> 商业案例</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9/"><i class="fa-fw fas fa-newspaper"></i><span> 今日热点</span></a></div><div class="menus_item"><a class="site-page" href="/pages/todayOil/"><i class="fa-fw fas fa-inbox"></i><span> 今日油价</span></a></div><div class="menus_item"><a class="site-page" href="/pages/query/"><i class="fa-fw fas fa-times"></i><span> 便民查询</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://data.freelibrary.top/img/bg_image.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="辰沙资源"><span class="site-name">辰沙资源</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-train"></i><span> 项目资源</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-tree"></i><span> 源码分享</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/"><i class="fa-fw fas fa-key"></i><span> 商业案例</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9/"><i class="fa-fw fas fa-newspaper"></i><span> 今日热点</span></a></div><div class="menus_item"><a class="site-page" href="/pages/todayOil/"><i class="fa-fw fas fa-inbox"></i><span> 今日油价</span></a></div><div class="menus_item"><a class="site-page" href="/pages/query/"><i class="fa-fw fas fa-times"></i><span> 便民查询</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">辰沙资源</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/i-stack" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shoubing.stack@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://data.freelibrary.top/img/connectionQR/wechat.jpeg" rel="external nofollow noreferrer" target="_blank" title="微信"><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://data.freelibrary.top/img/connectionQR/qq.jpeg" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout hide-aside" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3c97945a.html" title="90后就伙创业用这4个方法，15天收款1700万">90后就伙创业用这4个方法，15天收款1700万</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-07T11:27:32.000Z" title="发表于 2022-12-07 19:27:32">2022-12-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/">商业案例</a></span></div><div class="content">一、项目背景螺蛳粉为广西柳州的一种特有的地方特色的美食，本人来说是很喜欢吃螺蛳粉的，但是螺蛳粉有一个自身比较独特的味道，所以很多人是接受不了的，有点类似榴莲，喜欢的人喜欢的不得了，不喜欢的人闻着都想躲开。今天为大家介绍的这个螺蛳粉，相信好这口的人都应该吃过。只是因为怕有广告的嫌疑，所以不在里面提起她叫什么名字，但是这家螺蛳粉并不是一个什么老牌的螺蛳粉，而是一个新型的品牌。因为在很多的案例里面，他们都说我分享的都是一些老店，老品牌怎么做的？那么今天就给大家分享一个新的品牌是如何来做的？这家螺蛳粉针对的不是线下的店面。而是把螺蛳粉生产出来，就像方便面一样在超市里面进行销售的这种模式。相信去买过螺蛳粉来吃的人，都知道螺蛳粉和方便面虽然长得差不多，但是还是有很大区别的，因为螺蛳粉需要泡很长的时间才能吃，一般在15分钟以上。如果泡的时间过短，根本泡不软。这个算是行业的痛点，所以这家螺蛳粉在上市之前首先对产品进行了研发，目的就是为了解决这个问题。我们都知道在任何行业里面“效率”是非常关键的一个因素，以前我提到过这个观点，就是要么让客户把时间浪费在有意义的事情之上，要么让客户节约时间，真功夫30秒出 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/b377819b.html" title="宝塔面板在独立服务器上安装部署Hexo博客教程"><img class="post-bg" src="https://cdna.artstation.com/p/assets/images/images/024/768/058/medium/lv-800.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="宝塔面板在独立服务器上安装部署Hexo博客教程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/b377819b.html" title="宝塔面板在独立服务器上安装部署Hexo博客教程">宝塔面板在独立服务器上安装部署Hexo博客教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-06T14:39:37.000Z" title="发表于 2022-12-06 22:39:37">2022-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="content">安装Nodejs版本管理器登录宝塔面板后找到软件商店-&gt;免费应用-&gt;Nodejs版本管理器直接点安装即可
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://data.freelibrary.top/img/head.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E5%85%A8%E6%B0%91%E4%BB%BB%E5%8A%A1/"><i class="fa-fw fas fa-train"></i><span> 全民任务</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-tree"></i><span> 源码分享</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/"><i class="fa-fw fas fa-key"></i><span> 商业案例</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9/"><i class="fa-fw fas fa-newspaper"></i><span> 今日热点</span></a></div><div class="menus_item"><a class="site-page" href="/pages/todayOil/"><i class="fa-fw fas fa-inbox"></i><span> 今日油价</span></a></div><div class="menus_item"><a class="site-page" href="/pages/query/"><i class="fa-fw fas fa-times"></i><span> 便民查询</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://data.freelibrary.top/img/bg_image.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="辰沙资源"><span class="site-name">辰沙资源</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E5%85%A8%E6%B0%91%E4%BB%BB%E5%8A%A1/"><i class="fa-fw fas fa-train"></i><span> 全民任务</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E6%BA%90%E7%A0%81%E8%B5%84%E6%BA%90/"><i class="fa-fw fas fa-tree"></i><span> 源码分享</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/"><i class="fa-fw fas fa-key"></i><span> 商业案例</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E4%BB%8A%E6%97%A5%E7%83%AD%E7%82%B9/"><i class="fa-fw fas fa-newspaper"></i><span> 今日热点</span></a></div><div class="menus_item"><a class="site-page" href="/pages/todayOil/"><i class="fa-fw fas fa-inbox"></i><span> 今日油价</span></a></div><div class="menus_item"><a class="site-page" href="/pages/query/"><i class="fa-fw fas fa-times"></i><span> 便民查询</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">辰沙资源</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/i-stack" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shoubing.stack@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://data.freelibrary.top/img/connectionQR/wechat.jpeg" rel="external nofollow noreferrer" target="_blank" title="微信"><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://data.freelibrary.top/img/connectionQR/qq.jpeg" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3c97945a.html" title="90后就伙创业用这4个方法，15天收款1700万">90后就伙创业用这4个方法，15天收款1700万</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-07T11:27:32.000Z" title="发表于 2022-12-07 19:27:32">2022-12-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/">商业案例</a></span></div><div class="content">一、项目背景螺蛳粉为广西柳州的一种特有的地方特色的美食，本人来说是很喜欢吃螺蛳粉的，但是螺蛳粉有一个自身比较独特的味道，所以很多人是接受不了的，有点类似榴莲，喜欢的人喜欢的不得了，不喜欢的人闻着都想躲开。今天为大家介绍的这个螺蛳粉，相信好这口的人都应该吃过。只是因为怕有广告的嫌疑，所以不在里面提起她叫什么名字，但是这家螺蛳粉并不是一个什么老牌的螺蛳粉，而是一个新型的品牌。因为在很多的案例里面，他们都说我分享的都是一些老店，老品牌怎么做的？那么今天就给大家分享一个新的品牌是如何来做的？这家螺蛳粉针对的不是线下的店面。而是把螺蛳粉生产出来，就像方便面一样在超市里面进行销售的这种模式。相信去买过螺蛳粉来吃的人，都知道螺蛳粉和方便面虽然长得差不多，但是还是有很大区别的，因为螺蛳粉需要泡很长的时间才能吃，一般在15分钟以上。如果泡的时间过短，根本泡不软。这个算是行业的痛点，所以这家螺蛳粉在上市之前首先对产品进行了研发，目的就是为了解决这个问题。我们都知道在任何行业里面“效率”是非常关键的一个因素，以前我提到过这个观点，就是要么让客户把时间浪费在有意义的事情之上，要么让客户节约时间，真功夫30秒出 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/b377819b.html" title="宝塔面板在独立服务器上安装部署Hexo博客教程"><img class="post-bg" src="https://cdna.artstation.com/p/assets/images/images/024/768/058/medium/lv-800.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="宝塔面板在独立服务器上安装部署Hexo博客教程"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/b377819b.html" title="宝塔面板在独立服务器上安装部署Hexo博客教程">宝塔面板在独立服务器上安装部署Hexo博客教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-06T14:39:37.000Z" title="发表于 2022-12-06 22:39:37">2022-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="content">安装Nodejs版本管理器登录宝塔面板后找到软件商店-&gt;免费应用-&gt;Nodejs版本管理器直接点安装即可
 
 安装最新版
 
 安装完成在命令行输入：
-1node -v
-1npm -v
+node -v
+npm -v
 
 
 出现 npm WARN config init.module Use --init-module instead. 解决办法：
 
-通过npm安装Hexo博客1npm install hexo-cli -g
+通过npm安装Hexo博客npm install hexo-cli -g
 
 
 输入 hexo -v 出现上面的界面，说明hexo安装成功。
 如果输入hexo命令会提示-bash: hexo: command not found找不到这个命令，这是因为hexo没有建立软连接，输入下面的命令
-1ln -s /www/server/nodejs/v16.20.1/bin/hexo /usr/local/bin/hexo
+ln -s /www/server/nodejs/v16.20.1/bin/hexo /usr/local/bin/hexo
 输入完成之后再次执行hexo -v。
 </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6b6cf3c4.html" title="90后美女开超市，“零钱全免，零食白送”">90后美女开超市，“零钱全免，零食白送”</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-06T12:13:43.000Z" title="发表于 2022-12-06 20:13:43">2022-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/">商业案例</a></span></div><div class="content">一、项目背景一个小区超市，利用口碑转变流量，做到月利润175万的案例。今天的主人公是位90后的美女小双，这家超市也不是很大只有100多个㎡，超市是这位美女家族企业。小双是个典型的富二代，大学毕业后虽然没有工作，但每天都是三更半夜才回家，下午天没黑就出门，一天比正常上本的人都忙碌。她主要活动的地点是夜场、KTV、大排档，主要活动的内容就是一瞎混！她的父母是急在心上，恼在脸上，不只一次的教育过自家的女儿，生怕哪天这棵白菜，就让外面的野猪给滚了！家里也比较有钱，不指望小双能赚钱，起码能有个正常的社交圈子也好，长期夜场下去真的会是场噩梦。终于老两口下定决心，要改变自己的女儿了，就对女儿说，以后我们不会为你提供生活费，一分钱都不给的那种。你想要钱花自己赚，当然鉴于你吃撒撒不剩，干啥啥不成，就给你一家超市，自己经营去把，赚多赚少你自己说了算，要是能把超市整大发了，也可以当成你以后的嫁妆，这样对你和你未来的老公我们也算有个交代了，不然还真有点对不起人家。90后小姑娘，爱折腾也能折腾，算算这家超市如果月月能有个几十万的收入，不就证明自己以后生活一下就蹦小康去了吗？但怎么经营是个问题，要不说是祖国未来的 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/posts/1a8717b7.html" title="Google抓取工具"><img class="post-bg" src="https://img-baofun.zhhainiao.com/pcwallpaper_ugc/scene/4c0a0e810eb76bbaa596e4993650f22b_preview.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Google抓取工具"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/1a8717b7.html" title="Google抓取工具">Google抓取工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-05T14:43:34.000Z" title="发表于 2022-12-05 22:43:34">2022-12-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="content">Google抓取工具“抓取工具”（有时也称为“漫游器”或“蜘蛛”程序）是一个通用术语，泛指通过跟踪从一个网页指向另一个网页的链接自动发现并扫描网站的任何程序。 Google 的主要抓取工具名叫 Googlebot。
 与浏览器一样，抓取器是在用户提示时请求单个网址的工具。
@@ -218,7 +218,7 @@ SEO - 搜索引擎优化：使您的网站更易于搜索引擎处理的过程�
 价值800万的餐厅也不能一口就吃下。是需要慢慢来，心急吃不了热豆腐。那么第1步就是先要拿到餐厅的经营权。通过经营权为跳板，慢慢来获取所有权。怎么来做的呢？找到餐厅转让方，进行谈判。做餐饮行业的老板更加清楚，餐厅的装修成本是属于打水漂，设备使用了就是二手设备，回收不到几个钱，并且，消耗型 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/81e9ea15.html" title="90后美女利用“借鸡生蛋”不用投资一分钱，日赚3000元">90后美女利用“借鸡生蛋”不用投资一分钱，日赚3000元</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-02T12:26:16.000Z" title="发表于 2022-12-02 20:26:16">2022-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%95%86%E4%B8%9A%E6%A1%88%E4%BE%8B/">商业案例</a></span></div><div class="content">资本是在流通中产生价值，知识是在交流中变得实用。
 一、项目背景空手套白狼的手法，通俗点讲就是不花一分钱成本，就可以赚到大钱。很多朋友会问，世界上这么好的事情吗？难道是做梦?或者是抢?你还别说真有，而且有很多，并且都是些我们日常生活中比较普通的，是任何人都可以唾手可得。没有套路，没有难度，想学都可以直接上手。
 【1】借别的摊位，为自己赚钱
-有一个小伙子，在一家商场门口看见别人搭了个简易的台子，在卖手机充值卡，这种卡买150送150，而且打电话很便宜。但是这种充值卡只能打电话不能发短信，就算这样也很吸引顾客，购买的人也很多。她站在一边围观，5分钟就看到有5个人在购买，小伙看到这个摊位生意这么好，就趁老板不忙的时候，过去打听。如果这个卡很赚钱的话，他完全可以在另外一个出口，摆一个台子，也卖这种充值卡。俗话说，独乐乐不如众乐乐，经过打听之后得知，买卡的人大部分是从老板这里批发，进行转卖，每卖出一张卡，可以赚10元，人流量大的时候，一个小时能卖30张，一个小时可以赚300块。这个商场每天人流量最大的时候也就只有几个小时，交完场地租金，每天可以赚1000多元。小伙就跟他商量，第2天能不能多带一个台 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div></main><footer id="footer" style="background-image: url('https://data.freelibrary.top/img/bg_image.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 大唐盛世</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+有一个小伙子，在一家商场门口看见别人搭了个简易的台子，在卖手机充值卡，这种卡买150送150，而且打电话很便宜。但是这种充值卡只能打电话不能发短信，就算这样也很吸引顾客，购买的人也很多。她站在一边围观，5分钟就看到有5个人在购买，小伙看到这个摊位生意这么好，就趁老板不忙的时候，过去打听。如果这个卡很赚钱的话，他完全可以在另外一个出口，摆一个台子，也卖这种充值卡。俗话说，独乐乐不如众乐乐，经过打听之后得知，买卡的人大部分是从老板这里批发，进行转卖，每卖出一张卡，可以赚10元，人流量大的时候，一个小时能卖30张，一个小时可以赚300块。这个商场每天人流量最大的时候也就只有几个小时，交完场地租金，每天可以赚1000多元。小伙就跟他商量，第2天能不能多带一个台 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://data.freelibrary.top/img/head.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">大唐盛世</div><div class="author-info__description">要么努力到出类拔萃，要么懒到乐知天命</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">194</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/i-stack" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shoubing.stack@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://data.freelibrary.top/img/connectionQR/wechat.jpeg" rel="external nofollow noreferrer" target="_blank" title="微信"><i class="fab fa-weixin"></i></a><a class="social-icon" href="https://data.freelibrary.top/img/connectionQR/qq.jpeg" rel="external nofollow noreferrer" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">194</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">376.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-10T07:04:46.879Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://data.freelibrary.top/img/bg_image.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 大唐盛世</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
   if ($mermaid.length === 0) return
   const runMermaid = () => {
@@ -251,10 +251,10 @@ SEO - 搜索引擎优化：使您的网站更易于搜索引擎处理的过程�
     window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
   }
 
-  btf.addModeChange('mermaid', runMermaid)
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
 
   window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
-})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+})()</script></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
@@ -266,11 +266,11 @@ var pjax = new Pjax({
 
 document.addEventListener('pjax:send', function () {
 
-  // removeEventListener scroll 
-  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
-  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
 
-  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  document.getElementById('rightside').classList.remove('rightside-show')
   
   if (window.aplayers) {
     for (let i = 0; i < window.aplayers.length; i++) {
@@ -316,11 +316,11 @@ document.addEventListener('pjax:complete', function () {
   typeof Prism === 'object' && Prism.highlightAll()
 })
 
-document.addEventListener('pjax:error', (e) => {
+document.addEventListener('pjax:error', e => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
   function butterfly_footer_beautify_injector_config(){
     var parent_div_git = document.getElementById('footer-wrap');
     var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="主题版本Butterfly_v3.8.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="本站采用双线部署，默认线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="本站采用双线部署，联通线路托管于Coding" title=""><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://beian.miit.gov.cn/" rel="external nofollow noreferrer" style="margin-inline:5px" data-title="备案号 豫ICP备2022028466号" title=""><img src="https://img.shields.io/badge/%E5%A4%87%E6%A1%88%E5%8F%B7-%E8%B1%ABICP%E5%A4%872022028466%E5%8F%B7-blue" alt=""/></a></p>';

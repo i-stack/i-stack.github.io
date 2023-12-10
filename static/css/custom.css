@@ -1,95 +1,56 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script>/* 文章标题居中 */
-#post&gt;#post-info{
-  text-align: center
+/* 文章标题居中 */
+#post>#post-info{
+  	text-align: center
 }
-
-/* #page-header {
-  background: rgba(13,135,127, 1);
-} */
-
-/* #menus {
-  background: rgba(13,135,127, 1);
-} */
-
-/* #post { 
-  background: rgba(13,135,127, 1);
-} */
-
-/* 侧边卡片的透明度 */
-/* :root {
-  --card-bg: rgba(255, 255, 255, .7);
-} */
-
-/* 文章的整体背景，渐变色设置 */
-/* #web_bg {*/
-	/* background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	/* background: #2BC0E4; */
-	/* fallback for old browsers */
-	/* background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4); */
-	/* Chrome 10-25, Safari 5.1-6 */
-	/* background: linear-gradient(to right, #EAECC6, #2BC0E4); */
-	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-/* }  */
-
-/* 文章的整体背景 */
-/* #web_bg {
-	background-image: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), 
-} */
 
 /* 主页所有文章页面背景 */
 #aside_content.card-widget,
-#recent-posts&gt;.recent-post-item,
-.layout_page&gt;div:first-child:not(.recent-posts),
-.layout_post&gt;#page,
-.layout_post&gt;#post,
+#recent-posts>.recent-post-item,
+.layout_page>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
 .read-mode 
-.layout_post&gt;#post {
+.layout_post>#post {
 	background: rgba(255, 255, 255, 0.8);
 }
 
-/* #page-header.full_page {
-    background: transparent;
-}
-
-#page-header:not(.not-top-img):before {
-	background: transparent;
-} 
-
-#page-header.not-home-page.fixed {
-  background: transparent;
-} */
-
-/* #footer {
-    background: transparent;
-} */
-
- /* 导航栏 */
- /* #page-header.nav-fixed #nav {
+/* 导航栏 */
+#page-header.nav-fixed #nav {
 	background: rgba(255, 255, 255, 0.88);
-} */
-
-#recent-posts {
-  padding-right: 95px;
 }
 
-#aside-content {
-  width: 500px;
-  padding-left: 95px;
+#nav-right{
+    flex:1 1 auto;
+    justify-content: flex-end;
+    margin-left: auto;
+    display: flex;
+    flex-wrap:nowrap;
 }
 
-/* 白天主题下的配置 */
-/* #aside-content&gt;.card-widget.card-info {
-    background-image: url('https://moonshuo.cn/css/bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: inherit;
-    background-size: 100%;
-} */
+#nav *::after{
+    background-color: transparent!important;
+}
 
-/* 黑暗主题下的配置 */
-/* [data-theme=dark] #aside-content&gt;.card-widget.card-info {
-    background-image: url('./bbg.png') !important
-} */
+.nav-fixed #nav{
+    transform: translateY(58px)!important;
+    -webkit-transform: translateY(58px)!important;
+    -moz-transform: translateY(58px)!important;
+    -ms-transform: translateY(58px)!important;
+    -o-transform: translateY(58px)!important;
+}
+
+#nav{
+    transition: none!important;
+    -webkit-transition: none!important;
+    -moz-transition: none!important;
+    -ms-transition: none!important;
+    -o-transition: none!important;
+}
+
+#recent-posts>.recent-post-item {
+	height: 249px;
+	align-items: center;
+}
 
 #post, #page, #archive {
 	background: rgba(255, 255, 255, 0.8);
@@ -99,36 +60,35 @@
 
 #aside-content.card-widget {
 	background: rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  border: 1px;
+	border-radius: 18px;
+	border: 1px;
 }
 
-#poem_info {
-	display: flex;
-  color: rgba(60, 60, 67, 0.6);
-  font-size: 0.5rem;
-  justify-content: center;
-  flex-wrap: wrap;
+#footer {
+    background: #202942;
 }
 
-#poem_dynasty {
-	order: 0;
-  padding: 2px 4px 2px 6px;
-  background: #edf0f7;
-  color: #363636;
-  border-radius: 8px;
+/* 文章增加段落序号 */
+/* #post #article-container.post-content h1,
+#post #article-container.post-content h2,
+#post #article-container.post-content h3,
+#post #article-container.post-content h4,
+#post #article-container.post-content h5,
+#post #article-container.post-content h6 {
+  	padding-left: 0 !important; 
 }
 
-#poem_author {
-	order: 1;
-  padding: 2px;
-  margin-left: 8px;
-}
-
-#poem_sentence {
-	text-align: center;
-}
-
-/* #footer {
-  display: none
+#post #article-container.post-content h1::before,
+#post #article-container.post-content h2::before,
+#post #article-container.post-content h3::before,
+#post #article-container.post-content h4::before,
+#post #article-container.post-content h5::before,
+#post #article-container.post-content h6::before {
+	position: relative;
+	content: attr(data-toc) ' ';
+	display: inline;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	margin-left: 0;
 } */
